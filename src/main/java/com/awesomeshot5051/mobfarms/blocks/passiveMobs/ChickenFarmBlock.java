@@ -4,6 +4,7 @@ import com.awesomeshot5051.mobfarms.blocks.BlockBase;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.ChickenFarmTileentity;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.PigFarmTileentity;
+import com.awesomeshot5051.mobfarms.items.render.passiveMobs.ChickenFarmItemRenderer;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
@@ -51,7 +52,7 @@ public class ChickenFarmBlock extends BlockBase implements EntityBlock, IItemBlo
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new com.awesomeshot5051.mobfarms.items.render.passiveMobs.ChickenFarmItemRenderer(); // Custom creeper farm renderer
+                return new ChickenFarmItemRenderer(); // Custom creeper farm renderer
             }
         };
     }
