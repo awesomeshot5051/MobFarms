@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "mob_farms:auto_trader",
+    "mob_farms:breeder",
+    "mob_farms:converter",
+    "mob_farms:farmer",
+    "mob_farms:incubator",
+    "mob_farms:iron_farm",
+    "mob_farms:trader",
+    "mob_farms:inventory_viewer",
+    "mob_farms:creeper_farm",
+    "mob_farms:pig_farm"
+  ]
+}
