@@ -17,13 +17,11 @@ public class ServerConfig extends ConfigBase {
     public final ModConfigSpec.IntValue rabbitSpawnTime;
     public final ModConfigSpec.IntValue salmonSpawnTime;
     public final ModConfigSpec.IntValue sheepSpawnTime;
-    public final ModConfigSpec.IntValue skeletonHorseSpawnTime;
     public final ModConfigSpec.IntValue snowGolemSpawnTime;
     public final ModConfigSpec.IntValue squidSpawnTime;
     public final ModConfigSpec.IntValue striderSpawnTime;
     public final ModConfigSpec.IntValue tropicalFishSpawnTime;
     public final ModConfigSpec.IntValue turtleSpawnTime;
-    public final ModConfigSpec.IntValue zombieHorseSpawnTime;
 
     //neutral mobs
     public final ModConfigSpec.IntValue spiderSpawnTime;
@@ -101,9 +99,6 @@ public class ServerConfig extends ConfigBase {
         sheepSpawnTime = builder.comment("The time in ticks the sheep farm takes to spawn a sheep")
                 .defineInRange("sheep_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
 
-        skeletonHorseSpawnTime = builder.comment("The time in ticks the skeleton horse farm takes to spawn a skeleton horse")
-                .defineInRange("skeleton_horse_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
-
         snowGolemSpawnTime = builder.comment("The time in ticks the snow golem farm takes to spawn a snow golem")
                 .defineInRange("snow_golem_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
 
@@ -118,10 +113,6 @@ public class ServerConfig extends ConfigBase {
 
         turtleSpawnTime = builder.comment("The time in ticks the turtle farm takes to spawn a turtle")
                 .defineInRange("turtle_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
-
-        zombieHorseSpawnTime = builder.comment("The time in ticks the zombie horse farm takes to spawn a zombie horse")
-                .defineInRange("zombie_horse_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
-
 
         //neutral mobs
         endermanSpawnTime = builder

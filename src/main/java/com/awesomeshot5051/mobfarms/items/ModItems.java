@@ -32,7 +32,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> RABBIT_FARM = ITEM_REGISTER.register("rabbit_farm", () -> ModBlocks.RABBIT_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SALMON_FARM = ITEM_REGISTER.register("salmon_farm", () -> ModBlocks.SALMON_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SHEEP_FARM = ITEM_REGISTER.register("sheep_farm", () -> ModBlocks.SHEEP_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> SKELETON_HORSE_FARM = ITEM_REGISTER.register("skeleton_horse_farm", () -> ModBlocks.SKELETON_HORSE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SNOW_GOLEM_FARM = ITEM_REGISTER.register("snow_golem_farm", () -> ModBlocks.SNOW_GOLEM_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SQUID_FARM = ITEM_REGISTER.register("squid_farm", () -> ModBlocks.SQUID_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> STRIDER_FARM = ITEM_REGISTER.register("strider_farm", () -> ModBlocks.STRIDER_FARM.get().toItem());

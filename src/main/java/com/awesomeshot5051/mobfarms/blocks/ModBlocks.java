@@ -27,13 +27,11 @@ public class ModBlocks {
     public static final DeferredHolder<Block, RabbitFarmBlock> RABBIT_FARM = BLOCK_REGISTER.register("rabbit_farm", RabbitFarmBlock::new);
     public static final DeferredHolder<Block, SalmonFarmBlock> SALMON_FARM = BLOCK_REGISTER.register("salmon_farm", SalmonFarmBlock::new);
     public static final DeferredHolder<Block, SheepFarmBlock> SHEEP_FARM = BLOCK_REGISTER.register("sheep_farm", SheepFarmBlock::new);
-    public static final DeferredHolder<Block, SkeletonHorseFarmBlock> SKELETON_HORSE_FARM = BLOCK_REGISTER.register("skeleton_horse_farm", SkeletonHorseFarmBlock::new);
     public static final DeferredHolder<Block, SnowGolemFarmBlock> SNOW_GOLEM_FARM = BLOCK_REGISTER.register("snow_golem_farm", SnowGolemFarmBlock::new);
     public static final DeferredHolder<Block, SquidFarmBlock> SQUID_FARM = BLOCK_REGISTER.register("squid_farm", SquidFarmBlock::new);
     public static final DeferredHolder<Block, StriderFarmBlock> STRIDER_FARM = BLOCK_REGISTER.register("strider_farm", StriderFarmBlock::new);
     public static final DeferredHolder<Block, TropicalFishFarmBlock> TROPICAL_FISH_FARM = BLOCK_REGISTER.register("tropical_fish_farm", TropicalFishFarmBlock::new);
     public static final DeferredHolder<Block, TurtleFarmBlock> TURTLE_FARM = BLOCK_REGISTER.register("turtle_farm", TurtleFarmBlock::new);
-    public static final DeferredHolder<Block, ZombieHorseFarmBlock> ZOMBIE_HORSE_FARM = BLOCK_REGISTER.register("zombie_horse_farm", ZombieHorseFarmBlock::new);
 
 
     // Neutral Mobs

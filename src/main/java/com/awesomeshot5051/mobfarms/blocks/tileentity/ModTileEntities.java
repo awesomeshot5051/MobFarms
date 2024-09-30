@@ -72,9 +72,6 @@ public class ModTileEntities {
             BlockEntityType.Builder.of(SheepFarmTileentity::new, ModBlocks.SHEEP_FARM.get()).build(null)
     );
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SkeletonHorseFarmTileentity>> SKELETON_HORSE_FARM = BLOCK_ENTITY_REGISTER.register("skeleton_horse_farm", () ->
-            BlockEntityType.Builder.of(SkeletonHorseFarmTileentity::new, ModBlocks.SKELETON_HORSE_FARM.get()).build(null)
-    );
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SnowGolemFarmTileentity>> SNOW_GOLEM_FARM = BLOCK_ENTITY_REGISTER.register("snow_golem_farm", () ->
             BlockEntityType.Builder.of(SnowGolemFarmTileentity::new, ModBlocks.SNOW_GOLEM_FARM.get()).build(null)
@@ -95,11 +92,6 @@ public class ModTileEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TurtleFarmTileentity>> TURTLE_FARM = BLOCK_ENTITY_REGISTER.register("turtle_farm", () ->
             BlockEntityType.Builder.of(TurtleFarmTileentity::new, ModBlocks.TURTLE_FARM.get()).build(null)
     );
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ZombieHorseFarmTileentity>> ZOMBIE_HORSE_FARM = BLOCK_ENTITY_REGISTER.register("zombie_horse_farm", () ->
-            BlockEntityType.Builder.of(ZombieHorseFarmTileentity::new, ModBlocks.ZOMBIE_HORSE_FARM.get()).build(null)
-    );
-
 
 
     // Neutral Mobs
@@ -240,13 +232,11 @@ public class ModTileEntities {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RABBIT_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SALMON_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SHEEP_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SKELETON_HORSE_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SNOW_GOLEM_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SQUID_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, STRIDER_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TROPICAL_FISH_FARM.get(), (object, context) -> object.getItemHandler());
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TURTLE_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOMBIE_HORSE_FARM.get(), (object, context) -> object.getItemHandler());
 
         //neutral mobs
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPIDER_FARM.get(), (object, context) -> object.getItemHandler());
@@ -301,13 +291,11 @@ public class ModTileEntities {
         BlockEntityRenderers.register(ModTileEntities.RABBIT_FARM.get(), RabbitFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.SALMON_FARM.get(), SalmonFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.SHEEP_FARM.get(), SheepFarmRenderer::new);
-        BlockEntityRenderers.register(ModTileEntities.SKELETON_HORSE_FARM.get(), SkeletonHorseFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.SNOW_GOLEM_FARM.get(), SnowGolemFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.SQUID_FARM.get(), SquidFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.STRIDER_FARM.get(), StriderFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.TROPICAL_FISH_FARM.get(), TropicalFishFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.TURTLE_FARM.get(), TurtleFarmRenderer::new);
-        BlockEntityRenderers.register(ModTileEntities.ZOMBIE_HORSE_FARM.get(), ZombieHorseFarmRenderer::new);
 
         //neutral mobs
         BlockEntityRenderers.register(ModTileEntities.SPIDER_FARM.get(), SpiderFarmRenderer::new);

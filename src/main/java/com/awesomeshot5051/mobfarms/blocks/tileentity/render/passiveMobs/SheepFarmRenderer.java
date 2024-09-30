@@ -1,7 +1,6 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.render.passiveMobs;
 
 import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.SheepFarmTileentity;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.PigFarmTileentity;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.render.RendererBase;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -42,7 +41,7 @@ public class SheepFarmRenderer extends RendererBase<SheepFarmTileentity> {
 
         Direction direction = Direction.SOUTH;
 
-        if (farm.getTimer() >= PigFarmTileentity.getPigSpawnTime() && farm.getTimer() < PigFarmTileentity.getPorkKillTime()) {
+        if (farm.getTimer() >= SheepFarmTileentity.getSheepSpawnTime() && farm.getTimer() < SheepFarmTileentity.getSheepKillTime()) {
             matrixStack.pushPose();
             matrixStack.translate(0.5D, 1D / 16D, 0.5D);
             matrixStack.mulPose(Axis.YP.rotationDegrees(-direction.toYRot()));
