@@ -2,14 +2,14 @@ package com.awesomeshot5051.mobfarms.blocks.neutralMobs;
 
 import com.awesomeshot5051.mobfarms.blocks.BlockBase;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.EndermanFarmTileentity;
+import com.awesomeshot5051.mobfarms.items.render.neutralMobs.EndermanFarmItemRenderer;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
 import de.maxhenkel.corelib.client.ItemRenderer;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.EndermanTileentity;
+import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
 import com.awesomeshot5051.mobfarms.gui.OutputContainer;
-import com.awesomeshot5051.mobfarms.items.render.neutralMobs.EndermanFarmItemRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -42,7 +42,7 @@ import java.util.List;
 public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public EndermanFarmBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
+        super(Properties.of().mapColor(MapColor.GRASS).strength(2.5F).sound(SoundType.GRASS).noOcclusion()); // Adjusted for enderman farm
     }
 
     @Override
@@ -51,7 +51,7 @@ public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBl
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new EndermanFarmRenderer(); // Custom renderer for Iron Farm
+                return new EndermanFarmItemRenderer(); // Custom enderman farm renderer
             }
         };
     }
@@ -59,8 +59,8 @@ public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        EndermanTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new EndermanTileentity(BlockPos.ZERO, ModBlocks.ENDERMAN_FARM.get().defaultBlockState()));
-        // Removed villager-related tooltip
+        EndermanFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new EndermanFarmTileentity(BlockPos.ZERO, ModBlocks.ENDERMAN_FARM.get().defaultBlockState()));
+        // Removed villager-related tooltip information
     }
 
     @Override
@@ -69,7 +69,7 @@ public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBl
         if (!(tileEntity instanceof EndermanFarmTileentity)) { // Check for EndermanFarmTileentity
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        EndermanTileentity farm = (EndermanTileentity) tileEntity;
+        EndermanFarmTileentity farm = (EndermanFarmTileentity) tileEntity;
 
         // Directly open the container without villager checks
         player.openMenu(new MenuProvider() {
@@ -81,7 +81,7 @@ public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBl
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.ENDERMAN_FARM::get); // Adjusted for iron farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.ENDERMAN_FARM::get); // Adjust for enderman farm
             }
         });
         return ItemInteractionResult.SUCCESS;
@@ -96,7 +96,7 @@ public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new EndermanTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
+        return new EndermanFarmTileentity(blockPos, blockState); // Spawn EndermanFarmTileentity
     }
 
     @Override

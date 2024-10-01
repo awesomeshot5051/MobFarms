@@ -29,9 +29,9 @@ public class GuiEvents {
         if (Minecraft.getInstance().player == null) {
             return;
         }
-        if (!Main.SERVER_CONFIG.tradeCycling.get()) {
-            return;
-        }
+//        if (!Main.SERVER_CONFIG.tradeCycling.get()) {
+//            return;
+//        }
 
         ClientConfig.CycleTradesButtonLocation loc = Main.CLIENT_CONFIG.cycleTradesButtonLocation.get();
 
@@ -64,9 +64,7 @@ public class GuiEvents {
 //            return;
 //        }
 
-        if (!Main.SERVER_CONFIG.tradeCycling.get()) {
-            return;
-        }
+
 
         Screen currentScreen = mc.screen;
 

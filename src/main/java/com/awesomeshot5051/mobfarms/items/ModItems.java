@@ -27,7 +27,7 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> HORSE_FARM = ITEM_REGISTER.register("horse_farm", () -> ModBlocks.HORSE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> MOOSHROOM_FARM = ITEM_REGISTER.register("mooshroom_farm", () -> ModBlocks.MOOSHROOM_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> PARROT_FARM = ITEM_REGISTER.register("parrot_farm", () -> ModBlocks.PARROT_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> PIG_FARM = ITEM_REGISTER.register("pig_farm", () -> ModBlocks.CHICKEN_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> PIG_FARM = ITEM_REGISTER.register("pig_farm", () -> ModBlocks.PIG_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> PUFFERFISH_FARM = ITEM_REGISTER.register("pufferfish_farm", () -> ModBlocks.PUFFERFISH_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> RABBIT_FARM = ITEM_REGISTER.register("rabbit_farm", () -> ModBlocks.RABBIT_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> SALMON_FARM = ITEM_REGISTER.register("salmon_farm", () -> ModBlocks.SALMON_FARM.get().toItem());
@@ -37,8 +37,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> STRIDER_FARM = ITEM_REGISTER.register("strider_farm", () -> ModBlocks.STRIDER_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TROPICAL_FISH_FARM = ITEM_REGISTER.register("tropical_fish_farm", () -> ModBlocks.TROPICAL_FISH_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> TURTLE_FARM = ITEM_REGISTER.register("turtle_farm", () -> ModBlocks.TURTLE_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> ZOMBIE_HORSE_FARM = ITEM_REGISTER.register("zombie_horse_farm", () -> ModBlocks.ZOMBIE_HORSE_FARM.get().toItem());
-
 
     //neutral mobs
     public static final DeferredHolder<Item, Item> SPIDER_FARM = ITEM_REGISTER.register("spider_farm", () -> ModBlocks.SPIDER_FARM.get().toItem());
@@ -50,29 +48,29 @@ public class ModItems {
 
 
     //aggressive mobs
-    public static final DeferredHolder<Item, Item> BLAZE_FARM = ITEM_REGISTER.register("blaze_farm", () -> ModBlocks.BLAZE_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> BLAZE_FARM = ITEM_REGISTER.register("blaze_farm", () -> ModBlocks.BLAZE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> CREEPER_FARM = ITEM_REGISTER.register("creeper_farm", () -> ModBlocks.CREEPER_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> DROWNED_FARM = ITEM_REGISTER.register("drowned_farm", () -> ModBlocks.DROWNED_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> ELDER_GUARDIAN_FARM = ITEM_REGISTER.register("elder_guardian_farm", () -> ModBlocks.ELDER_GUARDIAN_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> EVOKER_FARM = ITEM_REGISTER.register("evoker_farm", () -> ModBlocks.EVOKER_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> GHAST_FARM = ITEM_REGISTER.register("ghast_farm", () -> ModBlocks.GHAST_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> GUARDIAN_FARM = ITEM_REGISTER.register("guardian_farm", () -> ModBlocks.GUARDIAN_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> HOGLIN_FARM = ITEM_REGISTER.register("hoglin_farm", () -> ModBlocks.HOGLIN_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> ILLUSIONER_FARM = ITEM_REGISTER.register("illusioner_farm", () -> ModBlocks.ILLUSIONER_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> MAGMA_CUBE_FARM = ITEM_REGISTER.register("magma_cube_farm", () -> ModBlocks.MAGMA_CUBE_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> PHANTOM_FARM = ITEM_REGISTER.register("phantom_farm", () -> ModBlocks.PHANTOM_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> PILLAGER_FARM = ITEM_REGISTER.register("pillager_farm", () -> ModBlocks.PILLAGER_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> RAVAGER_FARM = ITEM_REGISTER.register("ravager_farm", () -> ModBlocks.RAVAGER_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> SHULKER_FARM = ITEM_REGISTER.register("shulker_farm", () -> ModBlocks.SHULKER_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> SKELETON_FARM = ITEM_REGISTER.register("skeleton_farm", () -> ModBlocks.SKELETON_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> SLIME_FARM = ITEM_REGISTER.register("slime_farm", () -> ModBlocks.SLIME_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> VEX_FARM = ITEM_REGISTER.register("vex_farm", () -> ModBlocks.VEX_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> VINDICATOR_FARM = ITEM_REGISTER.register("vindicator_farm", () -> ModBlocks.VINDICATOR_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> WARDEN_FARM = ITEM_REGISTER.register("warden_farm", () -> ModBlocks.WARDEN_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> WITCH_FARM = ITEM_REGISTER.register("witch_farm", () -> ModBlocks.WITCH_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> WITHER_SKELETON_FARM = ITEM_REGISTER.register("wither_skeleton_farm", () -> ModBlocks.WITHER_SKELETON_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> ZOGLIN_FARM = ITEM_REGISTER.register("zoglin_farm", () -> ModBlocks.ZOGLIN_FARM.get().toItem());
-    public static final DeferredHolder<Item, Item> ZOMBIE_FARM = ITEM_REGISTER.register("zombie_farm", () -> ModBlocks.ZOMBIE_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> DROWNED_FARM = ITEM_REGISTER.register("drowned_farm", () -> ModBlocks.DROWNED_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> ELDER_GUARDIAN_FARM = ITEM_REGISTER.register("elder_guardian_farm", () -> ModBlocks.ELDER_GUARDIAN_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> EVOKER_FARM = ITEM_REGISTER.register("evoker_farm", () -> ModBlocks.EVOKER_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> GHAST_FARM = ITEM_REGISTER.register("ghast_farm", () -> ModBlocks.GHAST_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> GUARDIAN_FARM = ITEM_REGISTER.register("guardian_farm", () -> ModBlocks.GUARDIAN_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> HOGLIN_FARM = ITEM_REGISTER.register("hoglin_farm", () -> ModBlocks.HOGLIN_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> ILLUSIONER_FARM = ITEM_REGISTER.register("illusioner_farm", () -> ModBlocks.ILLUSIONER_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> MAGMA_CUBE_FARM = ITEM_REGISTER.register("magma_cube_farm", () -> ModBlocks.MAGMA_CUBE_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> PHANTOM_FARM = ITEM_REGISTER.register("phantom_farm", () -> ModBlocks.PHANTOM_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> PILLAGER_FARM = ITEM_REGISTER.register("pillager_farm", () -> ModBlocks.PILLAGER_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> RAVAGER_FARM = ITEM_REGISTER.register("ravager_farm", () -> ModBlocks.RAVAGER_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> SHULKER_FARM = ITEM_REGISTER.register("shulker_farm", () -> ModBlocks.SHULKER_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> SKELETON_FARM = ITEM_REGISTER.register("skeleton_farm", () -> ModBlocks.SKELETON_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> SLIME_FARM = ITEM_REGISTER.register("slime_farm", () -> ModBlocks.SLIME_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> VEX_FARM = ITEM_REGISTER.register("vex_farm", () -> ModBlocks.VEX_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> VINDICATOR_FARM = ITEM_REGISTER.register("vindicator_farm", () -> ModBlocks.VINDICATOR_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> WARDEN_FARM = ITEM_REGISTER.register("warden_farm", () -> ModBlocks.WARDEN_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> WITCH_FARM = ITEM_REGISTER.register("witch_farm", () -> ModBlocks.WITCH_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> WITHER_SKELETON_FARM = ITEM_REGISTER.register("wither_skeleton_farm", () -> ModBlocks.WITHER_SKELETON_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> ZOGLIN_FARM = ITEM_REGISTER.register("zoglin_farm", () -> ModBlocks.ZOGLIN_FARM.get().toItem());
+//    public static final DeferredHolder<Item, Item> ZOMBIE_FARM = ITEM_REGISTER.register("zombie_farm", () -> ModBlocks.ZOMBIE_FARM.get().toItem());
 
 
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);

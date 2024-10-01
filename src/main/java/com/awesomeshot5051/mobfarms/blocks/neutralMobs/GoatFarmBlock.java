@@ -2,14 +2,14 @@ package com.awesomeshot5051.mobfarms.blocks.neutralMobs;
 
 import com.awesomeshot5051.mobfarms.blocks.BlockBase;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.GoatFarmTileentity;
+import com.awesomeshot5051.mobfarms.items.render.neutralMobs.GoatFarmItemRenderer;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
 import de.maxhenkel.corelib.client.ItemRenderer;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.GoatFarmTileentity;
+import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
 import com.awesomeshot5051.mobfarms.gui.OutputContainer;
-import com.awesomeshot5051.mobfarms.items.render.neutralMobs.GoatFarmItemRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -42,7 +42,7 @@ import java.util.List;
 public class GoatFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public GoatFarmBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
+        super(Properties.of().mapColor(MapColor.GRASS).strength(2.5F).sound(SoundType.GRASS).noOcclusion()); // Adjusted for goat farm
     }
 
     @Override
@@ -51,7 +51,7 @@ public class GoatFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new GoatFarmItemRenderer(); // Custom renderer for Iron Farm
+                return new GoatFarmItemRenderer(); // Custom goat farm renderer
             }
         };
     }
@@ -59,8 +59,8 @@ public class GoatFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        GoatFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new GoatFarmTileentity(BlockPos.ZERO, ModBlocks.IRON_FARM.get().defaultBlockState()));
-        // Removed villager-related tooltip
+        GoatFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new GoatFarmTileentity(BlockPos.ZERO, ModBlocks.GOAT_FARM.get().defaultBlockState()));
+        // Removed villager-related tooltip information
     }
 
     @Override
@@ -81,7 +81,7 @@ public class GoatFarmBlock extends BlockBase implements EntityBlock, IItemBlock 
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.IRON_FARM::get); // Adjusted for iron farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.GOAT_FARM::get); // Adjust for goat farm
             }
         });
         return ItemInteractionResult.SUCCESS;

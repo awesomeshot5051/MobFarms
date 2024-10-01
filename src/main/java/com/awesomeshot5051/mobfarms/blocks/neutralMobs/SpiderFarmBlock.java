@@ -2,14 +2,14 @@ package com.awesomeshot5051.mobfarms.blocks.neutralMobs;
 
 import com.awesomeshot5051.mobfarms.blocks.BlockBase;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.SpiderFarmTileentity;
+import com.awesomeshot5051.mobfarms.items.render.neutralMobs.SpiderFarmItemRenderer;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
 import de.maxhenkel.corelib.client.ItemRenderer;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.SpiderFarmTileentity;
+import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
 import com.awesomeshot5051.mobfarms.gui.OutputContainer;
-import com.awesomeshot5051.mobfarms.items.render.neutralMobs.SpiderFarmItemRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -42,7 +42,7 @@ import java.util.List;
 public class SpiderFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
 
     public SpiderFarmBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).strength(2.5F).sound(SoundType.METAL).noOcclusion());
+        super(Properties.of().mapColor(MapColor.GRASS).strength(2.5F).sound(SoundType.GRASS).noOcclusion()); // Adjusted for spider farm
     }
 
     @Override
@@ -51,7 +51,7 @@ public class SpiderFarmBlock extends BlockBase implements EntityBlock, IItemBloc
             @OnlyIn(Dist.CLIENT)
             @Override
             public ItemRenderer createItemRenderer() {
-                return new SpiderFarmItemRenderer(); // Custom renderer for Iron Farm
+                return new SpiderFarmItemRenderer(); // Custom spider farm renderer
             }
         };
     }
@@ -59,8 +59,8 @@ public class SpiderFarmBlock extends BlockBase implements EntityBlock, IItemBloc
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        SpiderFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new SpiderFarmTileentity(BlockPos.ZERO, ModBlocks.IRON_FARM.get().defaultBlockState()));
-        // Removed villager-related tooltip
+        SpiderFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new SpiderFarmTileentity(BlockPos.ZERO, ModBlocks.SPIDER_FARM.get().defaultBlockState()));
+        // Removed villager-related tooltip information
     }
 
     @Override
@@ -81,7 +81,7 @@ public class SpiderFarmBlock extends BlockBase implements EntityBlock, IItemBloc
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.IRON_FARM::get); // Adjusted for iron farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.SPIDER_FARM::get); // Adjust for spider farm
             }
         });
         return ItemInteractionResult.SUCCESS;

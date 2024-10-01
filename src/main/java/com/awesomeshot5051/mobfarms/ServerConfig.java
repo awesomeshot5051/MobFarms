@@ -56,6 +56,7 @@ public class ServerConfig extends ConfigBase {
     public final ModConfigSpec.IntValue witherSkeletonSpawnTime;
     public final ModConfigSpec.IntValue zoglinSpawnTime;
     public final ModConfigSpec.IntValue zombieSpawnTime;
+    public final ModConfigSpec.BooleanValue universalReputation;
 
 
     public ServerConfig(ModConfigSpec.Builder builder) {
@@ -232,7 +233,12 @@ public class ServerConfig extends ConfigBase {
                 .comment("The time in ticks the zombie farm takes to spawn a zombie")
                 .defineInRange("zombie_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
 
-
+        universalReputation = builder
+                .comment(
+                        "If the villager reputation should be the same for every player",
+                        "This affects the prices of cured/converted villagers and the prices of the auto trader"
+                )
+                .define("villager.universal_reputation", true);
 
     }
 }
