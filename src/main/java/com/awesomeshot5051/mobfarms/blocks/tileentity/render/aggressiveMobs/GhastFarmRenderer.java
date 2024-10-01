@@ -46,12 +46,17 @@ public class GhastFarmRenderer extends RendererBase<GhastFarmTileentity> {
             matrixStack.translate(0.5D, 1D / 16D, 0.5D);
             matrixStack.mulPose(Axis.YP.rotationDegrees(-direction.toYRot()));
             matrixStack.translate(0D, 0D, 3D / 16D);
-            matrixStack.scale(0.3F, 0.3F, 0.3F);
+
+            // Adjust the scaling factor here
+            matrixStack.scale(0.09F, 0.09F, 0.09F); // Change to 0.09F
+
+
             ghastRenderer.render(ghast, 0F, 1F, matrixStack, buffer, combinedLight);
             matrixStack.popPose();
         }
 
         matrixStack.popPose();
     }
+
 
 }

@@ -59,7 +59,7 @@ public class WitherSkeletonFarmBlock extends BlockBase implements EntityBlock, I
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, components, tooltipFlag);
-        WitherSkeletonFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new WitherSkeletonFarmTileentity(BlockPos.ZERO, ModBlocks.WITHERSKELETON_FARM.get().defaultBlockState()));
+        WitherSkeletonFarmTileentity trader = VillagerBlockEntityData.getAndStoreBlockEntity(stack, context.registries(), context.level(), () -> new WitherSkeletonFarmTileentity(BlockPos.ZERO, ModBlocks.WITHER_SKELETON_FARM.get().defaultBlockState()));
         // Removed villager-related tooltip information
     }
 
@@ -80,7 +80,7 @@ public class WitherSkeletonFarmBlock extends BlockBase implements EntityBlock, I
             @Nullable
             @Override
             public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.WITHERSKELETON_FARM::get); // Adjust for witherSkeleton farm
+                return new OutputContainer(id, playerInventory, farm.getOutputInventory(), ContainerLevelAccess.create(worldIn, pos), ModBlocks.WITHER_SKELETON_FARM::get); // Adjust for witherSkeleton farm
             }
         });
         return ItemInteractionResult.SUCCESS;

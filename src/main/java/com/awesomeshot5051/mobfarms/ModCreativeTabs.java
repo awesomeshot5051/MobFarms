@@ -47,29 +47,29 @@ public class ModCreativeTabs {
 
 
                     //aggressive mobs
-//                    output.accept(new ItemStack(ModBlocks.BLAZE_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.BLAZE_FARM.get()));
                     output.accept(new ItemStack(ModBlocks.CREEPER_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.DROWNED_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.ELDER_GUARDIAN_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.EVOKER_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.GHAST_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.GUARDIAN_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.HOGLIN_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.ILLUSIONER_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.MAGMA_CUBE_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.PHANTOM_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.PILLAGER_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.RAVAGER_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.SHULKER_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.SKELETON_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.SLIME_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.VEX_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.VINDICATOR_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.WARDEN_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.WITCH_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.WITHER_SKELETON_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.ZOGLIN_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.ZOMBIE_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.DROWNED_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.ELDER_GUARDIAN_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.EVOKER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.GHAST_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.GUARDIAN_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.HOGLIN_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.ILLUSIONER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.MAGMA_CUBE_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.PHANTOM_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.PILLAGER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.RAVAGER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.SHULKER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.SKELETON_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.SLIME_FARM.get()));
+//                    output.accept(new ItemStack(ModBlocks.WITHER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.VINDICATOR_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.WARDEN_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.WITCH_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.WITHER_SKELETON_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.ZOGLIN_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.ZOMBIE_FARM.get()));
 
 
                     output.accept(new ItemStack(ModBlocks.INVENTORY_VIEWER.get()));

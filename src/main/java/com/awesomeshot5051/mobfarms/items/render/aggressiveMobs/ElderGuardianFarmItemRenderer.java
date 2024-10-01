@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 public class ElderGuardianFarmItemRenderer extends BlockItemRendererBase<ElderGuardianFarmRenderer, ElderGuardianFarmTileentity> {
 
     public ElderGuardianFarmItemRenderer() {
-        super(ElderGuardianFarmRenderer::new, () -> new ElderGuardianFarmTileentity(BlockPos.ZERO, ModBlocks.ELDERGUARDIAN_FARM.get().defaultBlockState()));
+        super(ElderGuardianFarmRenderer::new, () -> new ElderGuardianFarmTileentity(BlockPos.ZERO, ModBlocks.ELDER_GUARDIAN_FARM.get().defaultBlockState()));
     }
 
 }

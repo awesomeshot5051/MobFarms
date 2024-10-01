@@ -20,6 +20,7 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -29,6 +30,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -99,17 +101,32 @@ public class DrownedFarmTileentity extends VillagerTileentity implements ITickab
             return Collections.emptyList();
         }
 
+        List<ItemStack> drops = new ArrayList<>();
+
+        // Default drops
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Drowned(EntityType.DROWNED, level))
                 .withParameter(LootContextParams.ORIGIN, new Vec3(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()))
                 .withParameter(LootContextParams.DAMAGE_SOURCE, serverWorld.damageSources().explosion(null));
 
         LootParams lootContext = builder.create(LootContextParamSets.ENTITY);
-
         LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(DROWNED_LOOT_TABLE);
 
-        return lootTable.getRandomItems(lootContext);
+        // Add default drops
+        drops.addAll(lootTable.getRandomItems(lootContext));
+
+        // Custom drop logic for Nautilus Shell and Trident
+        if (serverWorld.random.nextFloat() < 0.5F) { // 50% chance for Nautilus Shell
+            drops.add(new ItemStack(Items.NAUTILUS_SHELL));
+        }
+
+        if (serverWorld.random.nextFloat() < 0.1F) { // 10% chance for Trident
+            drops.add(new ItemStack(Items.TRIDENT));
+        }
+
+        return drops;
     }
+
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);

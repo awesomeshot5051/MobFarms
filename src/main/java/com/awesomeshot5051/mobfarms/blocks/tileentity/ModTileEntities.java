@@ -2,11 +2,10 @@ package com.awesomeshot5051.mobfarms.blocks.tileentity;
 
 import com.awesomeshot5051.mobfarms.Main;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs.BlazeFarmTileentity;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs.CreeperFarmTileentity;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs.*;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.*;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.*;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.render.aggressiveMobs.CreeperFarmRenderer;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.render.aggressiveMobs.*;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.render.neutralMobs.*;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.render.passiveMobs.*;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -150,6 +149,62 @@ public class ModTileEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HoglinFarmTileentity>> HOGLIN_FARM = BLOCK_ENTITY_REGISTER.register("hoglin_farm", () ->
             BlockEntityType.Builder.of(HoglinFarmTileentity::new, ModBlocks.HOGLIN_FARM.get()).build(null)
     );
+
+    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+        //passive mobs
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CHICKEN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, COD_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, COW_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GLOW_SQUID_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, HORSE_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MOOSHROOM_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PARROT_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PIG_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PUFFERFISH_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RABBIT_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SALMON_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SHEEP_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SNOW_GOLEM_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SQUID_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, STRIDER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TROPICAL_FISH_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TURTLE_FARM.get(), (object, context) -> object.getItemHandler());
+//
+//        //neutral mobs
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPIDER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ENDERMAN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GOAT_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IRON_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PIGLIN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOMBIFIED_PIGLIN_FARM.get(), (object, context) -> object.getItemHandler());
+//
+//        //aggressive mobs
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BLAZE_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CREEPER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, DROWNED_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ELDER_GUARDIAN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, EVOKER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GHAST_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GUARDIAN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, HOGLIN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ILLUSIONER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MAGMA_CUBE_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PHANTOM_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PILLAGER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RAVAGER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SHULKER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SKELETON_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SLIME_FARM.get(), (object, context) -> object.getItemHandler());
+//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITHER_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, VINDICATOR_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WARDEN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITCH_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITHER_SKELETON_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOGLIN_FARM.get(), (object, context) -> object.getItemHandler());
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOMBIE_FARM.get(), (object, context) -> object.getItemHandler());
+
+    }
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IllusionerFarmTileentity>> ILLUSIONER_FARM = BLOCK_ENTITY_REGISTER.register("illusioner_farm", () ->
             BlockEntityType.Builder.of(IllusionerFarmTileentity::new, ModBlocks.ILLUSIONER_FARM.get()).build(null)
     );
@@ -196,65 +251,6 @@ public class ModTileEntities {
             BlockEntityType.Builder.of(ZombieFarmTileentity::new, ModBlocks.ZOMBIE_FARM.get()).build(null)
     );
 
-    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        //passive mobs
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CHICKEN_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, COD_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, COW_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GLOW_SQUID_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, HORSE_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MOOSHROOM_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PARROT_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PIG_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PUFFERFISH_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RABBIT_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SALMON_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SHEEP_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SNOW_GOLEM_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SQUID_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, STRIDER_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TROPICAL_FISH_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TURTLE_FARM.get(), (object, context) -> object.getItemHandler());
-//
-//        //neutral mobs
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SPIDER_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ENDERMAN_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GOAT_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IRON_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PIGLIN_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOMBIFIED_PIGLIN_FARM.get(), (object, context) -> object.getItemHandler());
-//
-//        //aggressive mobs
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, BLAZE_FARM.get(), (object, context) -> object.getItemHandler());
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, CREEPER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, DROWNED_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ELDER_GUARDIAN_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, EVOKER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GHAST_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, GUARDIAN_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, HOGLIN_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ILLUSIONER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, MAGMA_CUBE_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PHANTOM_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PILLAGER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RAVAGER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SHULKER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SKELETON_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SLIME_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITHER_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, VINDICATOR_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WARDEN_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITCH_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITHER_SKELETON_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOGLIN_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOMBIE_FARM.get(), (object, context) -> object.getItemHandler());
-//
-    }
-
-    public static void init(IEventBus eventBus) {
-        BLOCK_ENTITY_REGISTER.register(eventBus);
-    }
-
     @OnlyIn(Dist.CLIENT)
     public static void clientSetup() {
         if (!Main.CLIENT_CONFIG.renderBlockContents.get()) {
@@ -288,33 +284,35 @@ public class ModTileEntities {
         BlockEntityRenderers.register(ModTileEntities.ZOMBIFIED_PIGLIN_FARM.get(), ZombifiedPiglinFarmRenderer::new);
 //
 //        //aggressive mobs
-//        BlockEntityRenderers.register(ModTileEntities.BLAZE_FARM.get(), BlazeFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.BLAZE_FARM.get(), BlazeFarmRenderer::new);
         BlockEntityRenderers.register(ModTileEntities.CREEPER_FARM.get(), CreeperFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.DROWNED_FARM.get(), DrownedFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.ELDER_GUARDIAN_FARM.get(), ElderGuardianFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.EVOKER_FARM.get(), EvokerFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.GHAST_FARM.get(), GhastFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.GUARDIAN_FARM.get(), GuardianFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.HOGLIN_FARM.get(), HoglinFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.ILLUSIONER_FARM.get(), IllusionerFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.MAGMA_CUBE_FARM.get(), MagmaCubeFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.PHANTOM_FARM.get(), PhantomFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.PILLAGER_FARM.get(), PillagerFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.RAVAGER_FARM.get(), RavagerFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.SHULKER_FARM.get(), ShulkerFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.SKELETON_FARM.get(), SkeletonFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.SLIME_FARM.get(), SlimeFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.DROWNED_FARM.get(), DrownedFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.ELDER_GUARDIAN_FARM.get(), ElderGuardianFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.EVOKER_FARM.get(), EvokerFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.GHAST_FARM.get(), GhastFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.GUARDIAN_FARM.get(), GuardianFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.HOGLIN_FARM.get(), HoglinFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.ILLUSIONER_FARM.get(), IllusionerFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.MAGMA_CUBE_FARM.get(), MagmaCubeFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.PHANTOM_FARM.get(), PhantomFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.PILLAGER_FARM.get(), PillagerFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.RAVAGER_FARM.get(), RavagerFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.SHULKER_FARM.get(), ShulkerFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.SKELETON_FARM.get(), SkeletonFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.SLIME_FARM.get(), SlimeFarmRenderer::new);
 //        BlockEntityRenderers.register(ModTileEntities.WITHER_FARM.get(), WitherFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.VINDICATOR_FARM.get(), VindicatorFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.WARDEN_FARM.get(), WardenFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.WITCH_FARM.get(), WitchFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.WITHER_SKELETON_FARM.get(), WitherSkeletonFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.ZOGLIN_FARM.get(), ZoglinFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.VINDICATOR_FARM.get(), VindicatorFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.WARDEN_FARM.get(), WardenFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.WITCH_FARM.get(), WitchFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.WITHER_SKELETON_FARM.get(), WitherSkeletonFarmRenderer::new);
+        BlockEntityRenderers.register(ModTileEntities.ZOGLIN_FARM.get(), ZoglinFarmRenderer::new);
 
 
     }
 
-
+    public static void init(IEventBus eventBus) {
+        BLOCK_ENTITY_REGISTER.register(eventBus);
+    }
 
 
 }

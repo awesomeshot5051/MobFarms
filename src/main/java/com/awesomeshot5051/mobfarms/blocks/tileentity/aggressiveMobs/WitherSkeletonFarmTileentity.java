@@ -34,7 +34,7 @@ import java.util.List;
 
 public class WitherSkeletonFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static final ResourceKey<LootTable> WITHERSKELETON_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/witherSkeleton"));
+    private static final ResourceKey<LootTable> WITHERSKELETON_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/wither_skeleton"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;

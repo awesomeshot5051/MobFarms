@@ -20,6 +20,7 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -108,7 +109,7 @@ public class PhantomFarmTileentity extends VillagerTileentity implements ITickab
 
         LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(PHANTOM_LOOT_TABLE);
 
-        return lootTable.getRandomItems(lootContext);
+        return Collections.singletonList(new ItemStack(Items.PHANTOM_MEMBRANE, 3));
     }
 
     public Container getOutputInventory() {

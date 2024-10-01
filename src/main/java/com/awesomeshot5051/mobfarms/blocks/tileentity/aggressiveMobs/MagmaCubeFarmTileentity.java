@@ -34,7 +34,7 @@ import java.util.List;
 
 public class MagmaCubeFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static final ResourceKey<LootTable> MAGMACUBE_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/magmaCube"));
+    private static final ResourceKey<LootTable> MAGMACUBE_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/magma_cube"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;

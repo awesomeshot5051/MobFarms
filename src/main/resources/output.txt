@@ -1,180 +1,39 @@
 Folder PATH listing for volume Data
 Volume serial number is F452-2237
 D:.
-|   icon.png
-|   output.txt
-|   pack.mcmeta
-|   
 +---assets
 |   \---mob_farms
-|       |   sounds.json
-|       |   
 |       +---blockstates
-|       |   |   farmer.json
-|       |   |   inventory_viewer.json
-|       |   |   
 |       |   +---aggressive
-|       |   |       creeper_farm.json
-|       |   |       
 |       |   +---neutral
-|       |   |       iron_farm.json
-|       |   |       
 |       |   \---passive
-|       |           chicken_farm.json
-|       |           cod_farm.json
-|       |           cow_farm.json
-|       |           glow_squid_farm.json
-|       |           horse_farm.json
-|       |           mooshrooom_farm.json
-|       |           parrot_farm.json
-|       |           pig_farm.json
-|       |           pufferfish_farm.json
-|       |           rabbit_farm.json
-|       |           salmon_farm.json
-|       |           sheep_farm.json
-|       |           snow_golem_farm.json
-|       |           squid_farm.json
-|       |           strider_farm.json
-|       |           tropicalFish_farm.json
-|       |           turtle_farm.json
-|       |           
 |       +---lang
-|       |       de_de.json
-|       |       en_us.json
-|       |       fr_fr.json
-|       |       hu_hu.json
-|       |       id_id.json
-|       |       ja_jp.json
-|       |       ko_kr.json
-|       |       pt_br.json
-|       |       ru_ru.json
-|       |       tr_tr.json
-|       |       uk_ua.json
-|       |       zh_cn.json
-|       |       zh_tw.json
-|       |       
 |       +---models
 |       |   +---block
-|       |   |   |   farm.json
-|       |   |   |   inventory_viewer.json
-|       |   |   |   
 |       |   |   +---aggressive
-|       |   |   |       creeper_farm.json
-|       |   |   |       
 |       |   |   +---neutral
-|       |   |   |       iron_farm.json
-|       |   |   |       
 |       |   |   \---passive
-|       |   |           chicken_farm.json
-|       |   |           cod_farm.json
-|       |   |           cow_farm.json
-|       |   |           glow_squid_farm.json
-|       |   |           horse_farm.json
-|       |   |           mooshrooom_farm.json
-|       |   |           parrot_farm.json
-|       |   |           pig_farm.json
-|       |   |           pufferfish_farm.json
-|       |   |           rabbit_farm.json
-|       |   |           salmon_farm.json
-|       |   |           sheep_farm.json
-|       |   |           snow_golem_farm.json
-|       |   |           squid_farm.json
-|       |   |           strider_farm.json
-|       |   |           tropicalFish_farm.json
-|       |   |           turtle_farm.json
-|       |   |           
 |       |   \---item
-|       |       |   inventory_viewer.json
-|       |       |   
 |       |       +---aggressive
-|       |       |       creeper_farm.json
-|       |       |       
 |       |       +---neutral
-|       |       |       iron_farm.json
-|       |       |       
 |       |       \---passive
-|       |               chicken_farm.json
-|       |               cod_farm.json
-|       |               cow_farm.json
-|       |               glow_squid_farm.json
-|       |               horse_farm.json
-|       |               mooshrooom_farm.json
-|       |               parrot_farm.json
-|       |               pig_farm.json
-|       |               pufferfish_farm.json
-|       |               rabbit_farm.json
-|       |               salmon_farm.json
-|       |               sheep_farm.json
-|       |               snow_golem_farm.json
-|       |               squid_farm.json
-|       |               strider_farm.json
-|       |               tropicalFish_farm.json
-|       |               turtle_farm.json
-|       |               
 |       \---textures
 |           +---block
-|           |       farm.png
-|           |       
 |           \---gui
-|               |   arrow_left.png
-|               |   arrow_right.png
-|               |   
 |               \---container
-|                       arrow_button.png
-|                       auto_trader.png
-|                       input_output.png
-|                       jei_input_output.png
-|                       output.png
-|                       villager_inventory.png
-|                       
 +---data
 |   +---minecraft
 |   |   \---tags
 |   |       \---block
 |   |           \---mineable
-|   |                   pickaxe.json
-|   |                   
 |   \---mob_farms
 |       +---loot_table
 |       |   \---blocks
 |       |       +---aggressive
-|       |       |       creeper_farm.json
-|       |       |       
 |       |       +---neutral
-|       |       |       iron_farm.json
-|       |       |       
 |       |       \---passive
-|       |               chicken_farm.json
-|       |               cod_farm.json
-|       |               cow_farm.json
-|       |               glow_squid_farm.json
-|       |               horse_farm.json
-|       |               mooshrooom_farm.json
-|       |               parrot_farm.json
-|       |               pig_farm.json
-|       |               pufferfish_farm.json
-|       |               rabbit_farm.json
-|       |               salmon_farm.json
-|       |               sheep_farm.json
-|       |               snow_golem_farm.json
-|       |               squid_farm.json
-|       |               strider_farm.json
-|       |               tropicalFish_farm.json
-|       |               turtle_farm.json
-|       |               
 |       \---recipe
 |           +---aggressive
-|           |       creeper_farm.json
-|           |       
 |           +---neutral
-|           |       iron_farm.json
-|           |       
 |           \---passive
-|                   chicken_farm.json
-|                   cow_farm.json
-|                   pig_farm.json
-|                   
 \---META-INF
-        accesstransformer.cfg
-        neoforge.mods.toml
-        

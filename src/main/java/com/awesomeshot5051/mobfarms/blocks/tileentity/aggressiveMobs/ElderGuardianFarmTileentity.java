@@ -34,7 +34,7 @@ import java.util.List;
 
 public class ElderGuardianFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static final ResourceKey<LootTable> ELDERGUARDIAN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/elderGuardian"));
+    private static final ResourceKey<LootTable> ELDERGUARDIAN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/elder_guardian"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
