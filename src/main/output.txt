@@ -16,28 +16,112 @@ D:.
 |               |   
 |               +---blocks
 |               |   |   BlockBase.java
-|               |   |   CreeperFarmBlock.java
 |               |   |   HorizontalRotatableBlock.java
 |               |   |   InventoryViewerBlock.java
-|               |   |   IronFarmBlock.java
 |               |   |   ModBlocks.java
 |               |   |   
+|               |   +---aggressiveMobs
+|               |   |       CreeperFarmBlock.java
+|               |   |       
+|               |   +---neutralMobs
+|               |   |       EndermanFarmBlock.java
+|               |   |       GoatFarmBlock.java
+|               |   |       IronFarmBlock.java
+|               |   |       PiglinFarmBlock.java
+|               |   |       SpiderFarmBlock.java
+|               |   |       ZombifiedPiglinFarmBlock.java
+|               |   |       
+|               |   +---passiveMobs
+|               |   |       ChickenFarmBlock.java
+|               |   |       CodFarmBlock.java
+|               |   |       CowFarmBlock.java
+|               |   |       GlowSquidFarmBlock.java
+|               |   |       HorseFarmBlock.java
+|               |   |       MooshroomFarmBlock.java
+|               |   |       ParrotFarmBlock.java
+|               |   |       PigFarmBlock.java
+|               |   |       PufferfishFarmBlock.java
+|               |   |       RabbitFarmBlock.java
+|               |   |       SalmonFarmBlock.java
+|               |   |       SheepFarmBlock.java
+|               |   |       SnowGolemFarmBlock.java
+|               |   |       SquidFarmBlock.java
+|               |   |       StriderFarmBlock.java
+|               |   |       TropicalFishFarmBlock.java
+|               |   |       TurtleFarmBlock.java
+|               |   |       
 |               |   \---tileentity
-|               |       |   CreeperFarmTileentity.java
 |               |       |   FakeWorldTileentity.java
 |               |       |   InventoryViewerTileentity.java
-|               |       |   IronFarmTileentity.java
 |               |       |   ModTileEntities.java
 |               |       |   SyncableTileentity.java
 |               |       |   VillagerTileentity.java
 |               |       |   
+|               |       +---aggressiveMobs
+|               |       |       CreeperFarmTileentity.java
+|               |       |       
+|               |       +---neutralMobs
+|               |       |       EndermanFarmTileentity.java
+|               |       |       GoatFarmTileentity.java
+|               |       |       IronFarmTileentity.java
+|               |       |       PiglinFarmTileentity.java
+|               |       |       SpiderFarmTileentity.java
+|               |       |       ZombifiedPiglinFarmTileentity.java
+|               |       |       
+|               |       +---passiveMobs
+|               |       |       ChickenFarmTileentity.java
+|               |       |       CodFarmTileentity.java
+|               |       |       CowFarmTileentity.java
+|               |       |       GlowSquidFarmTileentity.java
+|               |       |       HorseFarmTileentity.java
+|               |       |       MooshroomFarmTileentity.java
+|               |       |       ParrotFarmTileentity.java
+|               |       |       PigFarmTileentity.java
+|               |       |       PufferfishFarmTileentity.java
+|               |       |       RabbitFarmTileentity.java
+|               |       |       SalmonFarmTileentity.java
+|               |       |       SheepFarmTileentity.java
+|               |       |       SnowGolemFarmTileentity.java
+|               |       |       SquidFarmTileentity.java
+|               |       |       StriderFarmTileentity.java
+|               |       |       TropicalFishFarmTileentity.java
+|               |       |       TurtleFarmTileentity.java
+|               |       |       
 |               |       \---render
-|               |               BlockRendererBase.java
-|               |               CreeperFarmRenderer.java
-|               |               InventoryViewerRenderer.java
-|               |               IronFarmRenderer.java
-|               |               RendererBase.java
-|               |               
+|               |           |   BlockRendererBase.java
+|               |           |   InventoryViewerRenderer.java
+|               |           |   RendererBase.java
+|               |           |   
+|               |           +---aggressiveMobs
+|               |           |       CreeperFarmRenderer.java
+|               |           |       
+|               |           +---neutralMobs
+|               |           |       EndermanFarmRenderer.java
+|               |           |       GoatFarmRenderer.java
+|               |           |       IronFarmRenderer.java
+|               |           |       PiglinFarmRenderer.java
+|               |           |       SpiderFarmRenderer.java
+|               |           |       ZombifiedPiglinFarmRenderer.java
+|               |           |       
+|               |           \---passiveMobs
+|               |                   ChickenFarmRenderer.java
+|               |                   CodFarmRenderer.java
+|               |                   CowFarmRenderer.java
+|               |                   GlowSquidFarmRenderer.java
+|               |                   HorseFarmRenderer.java
+|               |                   MooshroomFarmRenderer.java
+|               |                   ParrotFarmRenderer.java
+|               |                   PigFarmRenderer.java
+|               |                   PufferfishFarmRenderer.java
+|               |                   RabbitFarmRenderer.java
+|               |                   SalmonFarmRenderer.java
+|               |                   SheepFarmRenderer.java
+|               |                   SnowGolemFarmRenderer.java
+|               |                   SquidFarmRenderer.java
+|               |                   StriderFarmRenderer.java
+|               |                   TropicalFishFarmRenderer.java
+|               |                   TurtleFarmRenderer.java
+|               |                   
 |               +---datacomponents
 |               |       VillagerBlockEntityData.java
 |               |       VillagerData.java
@@ -80,30 +164,101 @@ D:.
 |               |   |   ModItems.java
 |               |   |   
 |               |   \---render
-|               |           BlockItemRendererBase.java
-|               |           CreeperFarmItemRenderer.java
-|               |           InventoryViewerItemRenderer.java
-|               |           IronFarmItemRenderer.java
-|               |           
+|               |       |   BlockItemRendererBase.java
+|               |       |   InventoryViewerItemRenderer.java
+|               |       |   
+|               |       +---aggressiveMobs
+|               |       |       CreeperFarmItemRenderer.java
+|               |       |       
+|               |       +---neutralMobs
+|               |       |       EndermanFarmItemRenderer.java
+|               |       |       GoatFarmItemRenderer.java
+|               |       |       IronFarmItemRenderer.java
+|               |       |       PiglinFarmItemRenderer.java
+|               |       |       SpiderFarmItemRenderer.java
+|               |       |       ZombifiedPiglinFarmItemRenderer.java
+|               |       |       
+|               |       \---passiveMobs
+|               |               ChickenFarmItemRenderer.java
+|               |               CodFarmItemRenderer.java
+|               |               CowFarmItemRenderer.java
+|               |               GlowSquidFarmItemRenderer.java
+|               |               HorseFarmItemRenderer.java
+|               |               MooshroomFarmItemRenderer.java
+|               |               ParrotFarmItemRenderer.java
+|               |               PigFarmItemRenderer.java
+|               |               PufferfishFarmItemRenderer.java
+|               |               RabbitFarmItemRenderer.java
+|               |               SalmonFarmItemRenderer.java
+|               |               SheepFarmItemRenderer.java
+|               |               SnowGolemFarmItemRenderer.java
+|               |               SquidFarmItemRenderer.java
+|               |               StriderFarmItemRenderer.java
+|               |               TropicalFishFarmItemRenderer.java
+|               |               TurtleFarmItemRenderer.java
+|               |               
 |               \---loottable
 |                       CopyBlockEntityData.java
 |                       ModLootTables.java
 |                       
 \---resources
     |   icon.png
+    |   output.txt
     |   pack.mcmeta
     |   
     +---assets
-    |   +---easy_villagers
     |   \---mob_farms
     |       |   sounds.json
     |       |   
     |       +---blockstates
-    |       |       creeper_farm.json
-    |       |       farmer.json
-    |       |       inventory_viewer.json
-    |       |       iron_farm.json
-    |       |       
+    |       |   |   chicken_farm.json
+    |       |   |   cod_farm.json
+    |       |   |   cow_farm.json
+    |       |   |   creeper_farm.json
+    |       |   |   farmer.json
+    |       |   |   glowSquid_farm.json
+    |       |   |   horse_farm.json
+    |       |   |   inventory_viewer.json
+    |       |   |   iron_farm.json
+    |       |   |   mooshroom_farm.json
+    |       |   |   parrot_farm.json
+    |       |   |   pig_farm.json
+    |       |   |   pufferfish_farm.json
+    |       |   |   rabbit_farm.json
+    |       |   |   salmon_farm.json
+    |       |   |   sheep_farm.json
+    |       |   |   snowGolem_farm.json
+    |       |   |   spider.json
+    |       |   |   squid_farm.json
+    |       |   |   strider_farm.json
+    |       |   |   tropicalFish_farm.json
+    |       |   |   turtle_farm.json
+    |       |   |   
+    |       |   +---aggressive
+    |       |   |       creeper_farm.json
+    |       |   |       
+    |       |   +---neutral
+    |       |   |       iron_farm.json
+    |       |   |       
+    |       |   \---passive
+    |       |           chicken_farm.json
+    |       |           cod_farm.json
+    |       |           cow_farm.json
+    |       |           glowSquid_farm.json
+    |       |           horse_farm.json
+    |       |           mooshrooom_farm.json
+    |       |           parrot_farm.json
+    |       |           pig_farm.json
+    |       |           pufferfish_farm.json
+    |       |           rabbit_farm.json
+    |       |           salmon_farm.json
+    |       |           sheep_farm.json
+    |       |           snowGolem_farm.json
+    |       |           squid_farm.json
+    |       |           strider_farm.json
+    |       |           tropicalFish_farm.json
+    |       |           turtle_farm.json
+    |       |           
     |       +---lang
     |       |       de_de.json
     |       |       en_us.json
@@ -121,29 +276,102 @@ D:.
     |       |       
     |       +---models
     |       |   +---block
-    |       |   |       auto_trader.json
-    |       |   |       breeder.json
-    |       |   |       converter.json
-    |       |   |       creeper_farm.json
-    |       |   |       farm.json
-    |       |   |       farmer.json
-    |       |   |       incubator.json
-    |       |   |       inventory_viewer.json
-    |       |   |       iron_farm.json
-    |       |   |       trader.json
-    |       |   |       
+    |       |   |   |   chicken_farm.json
+    |       |   |   |   cod_farm.json
+    |       |   |   |   cow_farm.json
+    |       |   |   |   creeper_farm.json
+    |       |   |   |   farm.json
+    |       |   |   |   glowSquid_farm.json
+    |       |   |   |   horse_farm.json
+    |       |   |   |   inventory_viewer.json
+    |       |   |   |   iron_farm.json
+    |       |   |   |   mooshroom_farm.json
+    |       |   |   |   parrot_farm.json
+    |       |   |   |   pig_farm.json
+    |       |   |   |   pufferfish_farm.json
+    |       |   |   |   rabbit_farm.json
+    |       |   |   |   salmon_farm.json
+    |       |   |   |   sheep_farm.json
+    |       |   |   |   snowGolem_farm.json
+    |       |   |   |   spider.json
+    |       |   |   |   squid_farm.json
+    |       |   |   |   strider_farm.json
+    |       |   |   |   tropicalFish_farm.json
+    |       |   |   |   turtle_farm.json
+    |       |   |   |   
+    |       |   |   +---aggressive
+    |       |   |   |       creeper_farm.json
+    |       |   |   |       
+    |       |   |   +---neutral
+    |       |   |   |       iron_farm.json
+    |       |   |   |       
+    |       |   |   \---passive
+    |       |   |           chicken_farm.json
+    |       |   |           cod_farm.json
+    |       |   |           cow_farm.json
+    |       |   |           glowSquid_farm.json
+    |       |   |           horse_farm.json
+    |       |   |           mooshrooom_farm.json
+    |       |   |           parrot_farm.json
+    |       |   |           pig_farm.json
+    |       |   |           pufferfish_farm.json
+    |       |   |           rabbit_farm.json
+    |       |   |           salmon_farm.json
+    |       |   |           sheep_farm.json
+    |       |   |           snowGolem_farm.json
+    |       |   |           squid_farm.json
+    |       |   |           strider_farm.json
+    |       |   |           tropicalFish_farm.json
+    |       |   |           turtle_farm.json
+    |       |   |           
     |       |   \---item
-    |       |           auto_trader.json
-    |       |           breeder.json
-    |       |           converter.json
-    |       |           creeper_farm.json
-    |       |           farmer.json
-    |       |           incubator.json
-    |       |           inventory_viewer.json
-    |       |           iron_farm.json
-    |       |           trader.json
-    |       |           villager.json
-    |       |           
+    |       |       |   chicken_farm.json
+    |       |       |   cod_farm.json
+    |       |       |   cow_farm.json
+    |       |       |   creeper_farm.json
+    |       |       |   glowSquid_farm.json
+    |       |       |   horse_farm.json
+    |       |       |   inventory_viewer.json
+    |       |       |   iron_farm.json
+    |       |       |   mooshroom_farm.json
+    |       |       |   parrot_farm.json
+    |       |       |   pig_farm.json
+    |       |       |   pufferfish_farm.json
+    |       |       |   rabbit_farm.json
+    |       |       |   salmon_farm.json
+    |       |       |   sheep_farm.json
+    |       |       |   snowGolem_farm.json
+    |       |       |   spider.json
+    |       |       |   squid_farm.json
+    |       |       |   strider_farm.json
+    |       |       |   tropicalFish_farm.json
+    |       |       |   turtle_farm.json
+    |       |       |   
+    |       |       +---aggressive
+    |       |       |       creeper_farm.json
+    |       |       |       
+    |       |       +---neutral
+    |       |       |       iron_farm.json
+    |       |       |       
+    |       |       \---passive
+    |       |               chicken_farm.json
+    |       |               cod_farm.json
+    |       |               cow_farm.json
+    |       |               glowSquid_farm.json
+    |       |               horse_farm.json
+    |       |               mooshrooom_farm.json
+    |       |               parrot_farm.json
+    |       |               pig_farm.json
+    |       |               pufferfish_farm.json
+    |       |               rabbit_farm.json
+    |       |               salmon_farm.json
+    |       |               sheep_farm.json
+    |       |               snowGolem_farm.json
+    |       |               squid_farm.json
+    |       |               strider_farm.json
+    |       |               tropicalFish_farm.json
+    |       |               turtle_farm.json
+    |       |               
     |       \---textures
     |           +---block
     |           |       farm.png
@@ -161,34 +389,79 @@ D:.
     |                       villager_inventory.png
     |                       
     +---data
-    |   +---easy_villagers
-    |   |   +---loot_table
-    |   |   |   \---blocks
-    |   |   |           auto_trader.json
-    |   |   |           breeder.json
-    |   |   |           converter.json
-    |   |   |           creeper_farm.json
-    |   |   |           farmer.json
-    |   |   |           incubator.json
-    |   |   |           iron_farm.json
-    |   |   |           trader.json
-    |   |   |           
-    |   |   \---recipe
-    |   |           auto_trader.json
-    |   |           breeder.json
-    |   |           converter.json
-    |   |           creeper_farm.json
-    |   |           farmer.json
-    |   |           incubator.json
-    |   |           iron_farm.json
-    |   |           trader.json
-    |   |           
-    |   \---minecraft
-    |       \---tags
-    |           \---block
-    |               \---mineable
-    |                       pickaxe.json
-    |                       
+    |   +---minecraft
+    |   |   \---tags
+    |   |       \---block
+    |   |           \---mineable
+    |   |                   pickaxe.json
+    |   |                   
+    |   \---mob_farms
+    |       +---loot_table
+    |       |   \---blocks
+    |       |       |   chicken_farm.json
+    |       |       |   cod_farm.json
+    |       |       |   cow_farm.json
+    |       |       |   creeper_farm.json
+    |       |       |   glowSquid_farm.json
+    |       |       |   horse_farm.json
+    |       |       |   iron_farm.json
+    |       |       |   mooshroom_farm.json
+    |       |       |   parrot_farm.json
+    |       |       |   pig_farm.json
+    |       |       |   pufferfish_farm.json
+    |       |       |   rabbit_farm.json
+    |       |       |   salmon_farm.json
+    |       |       |   sheep_farm.json
+    |       |       |   snowGolem_farm.json
+    |       |       |   spider_farm.json
+    |       |       |   squid_farm.json
+    |       |       |   strider_farm.json
+    |       |       |   tropicalFish_farm.json
+    |       |       |   turtle_farm.json
+    |       |       |   
+    |       |       +---aggressive
+    |       |       |       creeper_farm.json
+    |       |       |       
+    |       |       +---neutral
+    |       |       |       iron_farm.json
+    |       |       |       
+    |       |       \---passive
+    |       |               chicken_farm.json
+    |       |               cod_farm.json
+    |       |               cow_farm.json
+    |       |               glowSquid_farm.json
+    |       |               horse_farm.json
+    |       |               mooshrooom_farm.json
+    |       |               parrot_farm.json
+    |       |               pig_farm.json
+    |       |               pufferfish_farm.json
+    |       |               rabbit_farm.json
+    |       |               salmon_farm.json
+    |       |               sheep_farm.json
+    |       |               snowGolem_farm.json
+    |       |               squid_farm.json
+    |       |               strider_farm.json
+    |       |               tropicalFish_farm.json
+    |       |               turtle_farm.json
+    |       |               
+    |       \---recipe
+    |           |   chicken_farm.json
+    |           |   cow_farm.json
+    |           |   creeper_farm.json
+    |           |   iron_farm.json
+    |           |   pig_farm.json
+    |           |   
+    |           +---aggressive
+    |           |       creeper_farm.json
+    |           |       
+    |           +---neutral
+    |           |       iron_farm.json
+    |           |       
+    |           \---passive
+    |                   chicken_farm.json
+    |                   cow_farm.json
+    |                   pig_farm.json
+    |                   
     \---META-INF
             accesstransformer.cfg
             neoforge.mods.toml

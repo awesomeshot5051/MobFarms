@@ -1,12 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -20,7 +20,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -36,7 +35,7 @@ import java.util.List;
 public class ZombifiedPiglinFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for zombifiedPiglins instead of iron golems
-    private static ResourceKey<LootTable> ZOMBIFIEDPIGLIN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/zombifiedPiglin"));
+    private static ResourceKey<LootTable> ZOMBIFIEDPIGLIN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/zombified_piglin"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;

@@ -1,13 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-import com.awesomeshot5051.mobfarms.entity.EasyVillagerEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -35,7 +34,7 @@ import java.util.List;
 
 public class SnowGolemFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> SNOWGOLEM_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/snowGolem"));
+    private static ResourceKey<LootTable> SNOWGOLEM_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/snow_golem"));
 
     protected NonNullList<ItemStack> inventory;
 
@@ -57,8 +56,6 @@ public class SnowGolemFarmTileentity extends VillagerTileentity implements ITick
 
     @Override
     public void tick() {
-        EasyVillagerEntity v = getVillagerEntity();
-        if (v != null) {
             // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
             // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
 
@@ -90,7 +87,6 @@ public class SnowGolemFarmTileentity extends VillagerTileentity implements ITick
                 timer = 0L;
                 sync();
             }
-        }
     }
 
     private List<ItemStack> getDrops() {

@@ -1,25 +1,21 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.render.neutralMobs;
 
+import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.PiglinFarmTileentity;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.render.RendererBase;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.PiglinFarmTileentity;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.PiglinRenderer;
-import net.minecraft.client.renderer.entity.ZombieRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.piglin.Piglin;
-import net.minecraft.world.entity.monster.Zombie;
 
 import java.lang.ref.WeakReference;
 
 public class PiglinFarmRenderer extends RendererBase<PiglinFarmTileentity> {
 
-    private WeakReference<Zombie> zombieCache = new WeakReference<>(null);
-    private WeakReference<ZombieRenderer> zombieRendererCache = new WeakReference<>(null);
     private WeakReference<Piglin> piglinCache = new WeakReference<>(null);
     private WeakReference<PiglinRenderer> piglinRendererCache = new WeakReference<>(null);
 
@@ -32,18 +28,6 @@ public class PiglinFarmRenderer extends RendererBase<PiglinFarmTileentity> {
         super.render(farm, partialTicks, matrixStack, buffer, combinedLight, combinedOverlay);
         matrixStack.pushPose();
 
-        // Retrieve or create Zombie entity and renderer
-        Zombie zombie = zombieCache.get();
-        if (zombie == null) {
-            zombie = new Zombie(minecraft.level);
-            zombieCache = new WeakReference<>(zombie);
-        }
-
-        ZombieRenderer zombieRenderer = zombieRendererCache.get();
-        if (zombieRenderer == null) {
-            zombieRenderer = new ZombieRenderer(createEntityRenderer());
-            zombieRendererCache = new WeakReference<>(zombieRenderer);
-        }
 
         // Retrieve or create Piglin entity and renderer
         Piglin piglin = piglinCache.get();
@@ -84,7 +68,6 @@ public class PiglinFarmRenderer extends RendererBase<PiglinFarmTileentity> {
         matrixStack.translate(5D / 16D, 0D, -5D / 16D);
         matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
         matrixStack.scale(0.3F, 0.3F, 0.3F);
-        zombieRenderer.render(zombie, 0F, 1F, matrixStack, buffer, combinedLight);
         matrixStack.popPose();
 
         if (farm.getTimer() >= PiglinFarmTileentity.getPiglinSpawnTime() && farm.getTimer() < PiglinFarmTileentity.getPiglinKillTime()) {

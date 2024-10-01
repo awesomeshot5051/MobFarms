@@ -1,12 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -20,7 +20,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.GlowSquid;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -102,7 +101,7 @@ public class GlowSquidFarmTileentity extends VillagerTileentity implements ITick
 
         LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(GLOWSQUID_LOOT_TABLE);
 
-        return Collections.singletonList(new ItemStack(Items.COOKED_BEEF, 3));
+        return lootTable.getRandomItems(lootContext);
     }
 
     public Container getOutputInventory() {

@@ -1,14 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-//import com.awesomeshot5051.mobfarms.blocks.// VillagerBlockBase;
-import com.awesomeshot5051.mobfarms.entity.EasyVillagerEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -58,8 +56,6 @@ public class TropicalFishFarmTileentity extends VillagerTileentity implements IT
 
     @Override
     public void tick() {
-        EasyVillagerEntity v = getVillagerEntity();
-        if (v != null) {
             // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
             // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
 
@@ -92,7 +88,6 @@ public class TropicalFishFarmTileentity extends VillagerTileentity implements IT
                 sync();
             }
         }
-    }
 
     private List<ItemStack> getDrops() {
         if (!(level instanceof ServerLevel)) {
