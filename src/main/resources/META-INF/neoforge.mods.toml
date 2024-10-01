@@ -8,7 +8,7 @@ modId = "mob_farms"
 displayName = "Mob Farms"
 #updateJSONURL = "https://update.maxhenkel.de/neoforge/mob_farms"
 #displayURL = "https://www.curseforge.com/minecraft/mc-mods/easy-villagers"
-logoFile = "icon.png"
+logoFile = "../assets/mob_farms/textures/gui/icons/icon.png"
 authors = "awesomeshot5051"
 description = '''Mod Farms'''
 [[dependencies.mob_farms]]

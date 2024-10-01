@@ -1,6 +1,7 @@
 package com.awesomeshot5051.mobfarms;
 
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
+import com.awesomeshot5051.mobfarms.items.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -15,6 +16,7 @@ public class ModCreativeTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB_MOB_FARMS = TAB_REGISTER.register("mob_farms", () -> {
         return CreativeModeTab.builder()
+                .icon(() -> new ItemStack(ModItems.CREEPER_FARM.get())) // Use your custom item here
                 .displayItems((features, output) -> {
 
                     //passive mobs
