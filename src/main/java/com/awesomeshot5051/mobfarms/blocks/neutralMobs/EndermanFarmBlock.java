@@ -66,10 +66,9 @@ public class EndermanFarmBlock extends BlockBase implements EntityBlock, IItemBl
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof EndermanFarmTileentity)) { // Check for EndermanFarmTileentity
+        if (!(tileEntity instanceof EndermanFarmTileentity farm)) { // Check for EndermanFarmTileentity
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        EndermanFarmTileentity farm = (EndermanFarmTileentity) tileEntity;
 
         // Directly open the container without villager checks
         player.openMenu(new MenuProvider() {

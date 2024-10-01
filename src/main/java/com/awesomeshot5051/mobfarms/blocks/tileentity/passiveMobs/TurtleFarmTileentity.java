@@ -34,7 +34,7 @@ import java.util.List;
 
 public class TurtleFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> TURTLE_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/turtle"));
+    private static final ResourceKey<LootTable> TURTLE_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/turtle"));
 
     protected NonNullList<ItemStack> inventory;
 
@@ -50,50 +50,57 @@ public class TurtleFarmTileentity extends VillagerTileentity implements ITickabl
         outputItemHandler = new OutputItemHandler(inventory);
     }
 
+    public static int getTurtleSpawnTime() {
+        return Main.SERVER_CONFIG.turtleSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getTurtleKillTime() {
+        return getTurtleSpawnTime() + 20 * 10;
+    }
+
     public long getTimer() {
         return timer;
     }
 
     @Override
     public void tick() {
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
 
 //            if (advanceAge()) {
 //                sync();
 //            }
 
-            timer++;
-            setChanged();
+        timer++;
+        setChanged();
 
-            if (timer == getTurtleSpawnTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
-                sync();
-            } else if (timer > getTurtleSpawnTime() && timer < getTurtleKillTime()) {
-                if (timer % 20L == 0L) {
-                    // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TURTLE_HURT);
-                }
-            } else if (timer >= getTurtleKillTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TURTLE_DEATH);
-                for (ItemStack drop : getDrops()) {
-                    for (int i = 0; i < itemHandler.getSlots(); i++) {
-                        drop = itemHandler.insertItem(i, drop, false);
-                        if (drop.isEmpty()) {
-                            break;
-                        }
+        if (timer == getTurtleSpawnTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+            sync();
+        } else if (timer > getTurtleSpawnTime() && timer < getTurtleKillTime()) {
+            if (timer % 20L == 0L) {
+                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TURTLE_HURT);
+            }
+        } else if (timer >= getTurtleKillTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TURTLE_DEATH);
+            for (ItemStack drop : getDrops()) {
+                for (int i = 0; i < itemHandler.getSlots(); i++) {
+                    drop = itemHandler.insertItem(i, drop, false);
+                    if (drop.isEmpty()) {
+                        break;
                     }
                 }
-
-                timer = 0L;
-                sync();
             }
+
+            timer = 0L;
+            sync();
         }
+    }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Turtle(EntityType.TURTLE, level))
@@ -124,14 +131,6 @@ public class TurtleFarmTileentity extends VillagerTileentity implements ITickabl
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getTurtleSpawnTime() {
-        return Main.SERVER_CONFIG.turtleSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getTurtleKillTime() {
-        return getTurtleSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

@@ -11,10 +11,9 @@ public class BlockEvents {
     @SubscribeEvent
     public void onBlockClick(PlayerInteractEvent.RightClickBlock event) {
         BlockState state = event.getLevel().getBlockState(event.getPos());
-        if (!(state.getBlock() instanceof BlockBase)) {
+        if (!(state.getBlock() instanceof BlockBase block)) {
             return;
         }
-        BlockBase block = (BlockBase) state.getBlock();
 
         if (block.overrideClick(state, event.getLevel(), event.getPos(), event.getEntity(), event.getHand())) {
             event.setUseBlock(TriState.TRUE);

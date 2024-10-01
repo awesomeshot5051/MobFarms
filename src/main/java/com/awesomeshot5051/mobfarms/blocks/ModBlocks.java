@@ -44,29 +44,29 @@ public class ModBlocks {
 
 
     // Aggressive Mobs
-//    public static final DeferredHolder<Block, BlazeFarmBlock> BLAZE_FARM = BLOCK_REGISTER.register("blaze_farm", BlazeFarmBlock::new);
+    public static final DeferredHolder<Block, BlazeFarmBlock> BLAZE_FARM = BLOCK_REGISTER.register("blaze_farm", BlazeFarmBlock::new);
     public static final DeferredHolder<Block, CreeperFarmBlock> CREEPER_FARM = BLOCK_REGISTER.register("creeper_farm", CreeperFarmBlock::new);
-//    public static final DeferredHolder<Block, DrownedFarmBlock> DROWNED_FARM = BLOCK_REGISTER.register("drowned_farm", DrownedFarmBlock::new);
-//    public static final DeferredHolder<Block, ElderGuardianFarmBlock> ELDER_GUARDIAN_FARM = BLOCK_REGISTER.register("elder_guardian_farm", ElderGuardianFarmBlock::new);
-//    public static final DeferredHolder<Block, EvokerFarmBlock> EVOKER_FARM = BLOCK_REGISTER.register("evoker_farm", EvokerFarmBlock::new);
-//    public static final DeferredHolder<Block, GhastFarmBlock> GHAST_FARM = BLOCK_REGISTER.register("ghast_farm", GhastFarmBlock::new);
-//    public static final DeferredHolder<Block, GuardianFarmBlock> GUARDIAN_FARM = BLOCK_REGISTER.register("guardian_farm", GuardianFarmBlock::new);
-//    public static final DeferredHolder<Block, HoglinFarmBlock> HOGLIN_FARM = BLOCK_REGISTER.register("hoglin_farm", HoglinFarmBlock::new);
-//    public static final DeferredHolder<Block, IllusionerFarmBlock> ILLUSIONER_FARM = BLOCK_REGISTER.register("illusioner_farm", IllusionerFarmBlock::new);
-//    public static final DeferredHolder<Block, MagmaCubeFarmBlock> MAGMA_CUBE_FARM = BLOCK_REGISTER.register("magma_cube_farm", MagmaCubeFarmBlock::new);
-//    public static final DeferredHolder<Block, PhantomFarmBlock> PHANTOM_FARM = BLOCK_REGISTER.register("phantom_farm", PhantomFarmBlock::new);
-//    public static final DeferredHolder<Block, PillagerFarmBlock> PILLAGER_FARM = BLOCK_REGISTER.register("pillager_farm", PillagerFarmBlock::new);
-//    public static final DeferredHolder<Block, RavagerFarmBlock> RAVAGER_FARM = BLOCK_REGISTER.register("ravager_farm", RavagerFarmBlock::new);
-//    public static final DeferredHolder<Block, ShulkerFarmBlock> SHULKER_FARM = BLOCK_REGISTER.register("shulker_farm", ShulkerFarmBlock::new);
-//    public static final DeferredHolder<Block, SkeletonFarmBlock> SKELETON_FARM = BLOCK_REGISTER.register("skeleton_farm", SkeletonFarmBlock::new);
-//    public static final DeferredHolder<Block, SlimeFarmBlock> SLIME_FARM = BLOCK_REGISTER.register("slime_farm", SlimeFarmBlock::new);
-//    public static final DeferredHolder<Block, VexFarmBlock> VEX_FARM = BLOCK_REGISTER.register("vex_farm", VexFarmBlock::new);
-//    public static final DeferredHolder<Block, VindicatorFarmBlock> VINDICATOR_FARM = BLOCK_REGISTER.register("vindicator_farm", VindicatorFarmBlock::new);
-//    public static final DeferredHolder<Block, WardenFarmBlock> WARDEN_FARM = BLOCK_REGISTER.register("warden_farm", WardenFarmBlock::new);
-//    public static final DeferredHolder<Block, WitchFarmBlock> WITCH_FARM = BLOCK_REGISTER.register("witch_farm", WitchFarmBlock::new);
-//    public static final DeferredHolder<Block, WitherSkeletonFarmBlock> WITHER_SKELETON_FARM = BLOCK_REGISTER.register("wither_skeleton_farm", WitherSkeletonFarmBlock::new);
-//    public static final DeferredHolder<Block, ZoglinFarmBlock> ZOGLIN_FARM = BLOCK_REGISTER.register("zoglin_farm", ZoglinFarmBlock::new);
-//    public static final DeferredHolder<Block, ZombieFarmBlock> ZOMBIE_FARM = BLOCK_REGISTER.register("zombie_farm", ZombieFarmBlock::new);
+    public static final DeferredHolder<Block, DrownedFarmBlock> DROWNED_FARM = BLOCK_REGISTER.register("drowned_farm", DrownedFarmBlock::new);
+    public static final DeferredHolder<Block, ElderGuardianFarmBlock> ELDER_GUARDIAN_FARM = BLOCK_REGISTER.register("elder_guardian_farm", ElderGuardianFarmBlock::new);
+    public static final DeferredHolder<Block, EvokerFarmBlock> EVOKER_FARM = BLOCK_REGISTER.register("evoker_farm", EvokerFarmBlock::new);
+    public static final DeferredHolder<Block, GhastFarmBlock> GHAST_FARM = BLOCK_REGISTER.register("ghast_farm", GhastFarmBlock::new);
+    public static final DeferredHolder<Block, GuardianFarmBlock> GUARDIAN_FARM = BLOCK_REGISTER.register("guardian_farm", GuardianFarmBlock::new);
+    public static final DeferredHolder<Block, HoglinFarmBlock> HOGLIN_FARM = BLOCK_REGISTER.register("hoglin_farm", HoglinFarmBlock::new);
+    public static final DeferredHolder<Block, IllusionerFarmBlock> ILLUSIONER_FARM = BLOCK_REGISTER.register("illusioner_farm", IllusionerFarmBlock::new);
+    public static final DeferredHolder<Block, MagmaCubeFarmBlock> MAGMA_CUBE_FARM = BLOCK_REGISTER.register("magma_cube_farm", MagmaCubeFarmBlock::new);
+    public static final DeferredHolder<Block, PhantomFarmBlock> PHANTOM_FARM = BLOCK_REGISTER.register("phantom_farm", PhantomFarmBlock::new);
+    public static final DeferredHolder<Block, PillagerFarmBlock> PILLAGER_FARM = BLOCK_REGISTER.register("pillager_farm", PillagerFarmBlock::new);
+    public static final DeferredHolder<Block, RavagerFarmBlock> RAVAGER_FARM = BLOCK_REGISTER.register("ravager_farm", RavagerFarmBlock::new);
+    public static final DeferredHolder<Block, ShulkerFarmBlock> SHULKER_FARM = BLOCK_REGISTER.register("shulker_farm", ShulkerFarmBlock::new);
+    public static final DeferredHolder<Block, SkeletonFarmBlock> SKELETON_FARM = BLOCK_REGISTER.register("skeleton_farm", SkeletonFarmBlock::new);
+    public static final DeferredHolder<Block, SlimeFarmBlock> SLIME_FARM = BLOCK_REGISTER.register("slime_farm", SlimeFarmBlock::new);
+    public static final DeferredHolder<Block, VindicatorFarmBlock> VINDICATOR_FARM = BLOCK_REGISTER.register("vindicator_farm", VindicatorFarmBlock::new);
+    public static final DeferredHolder<Block, WardenFarmBlock> WARDEN_FARM = BLOCK_REGISTER.register("warden_farm", WardenFarmBlock::new);
+    public static final DeferredHolder<Block, WitchFarmBlock> WITCH_FARM = BLOCK_REGISTER.register("witch_farm", WitchFarmBlock::new);
+    public static final DeferredHolder<Block, WitherSkeletonFarmBlock> WITHER_SKELETON_FARM = BLOCK_REGISTER.register("wither_skeleton_farm", WitherSkeletonFarmBlock::new);
+    //    public static final DeferredHolder<Block, WitherFarmBlock> WITHER_FARM = BLOCK_REGISTER.register("wither_farm",WitherFarmBlock::new);
+    public static final DeferredHolder<Block, ZoglinFarmBlock> ZOGLIN_FARM = BLOCK_REGISTER.register("zoglin_farm", ZoglinFarmBlock::new);
+    public static final DeferredHolder<Block, ZombieFarmBlock> ZOMBIE_FARM = BLOCK_REGISTER.register("zombie_farm", ZombieFarmBlock::new);
 
 
     public static final DeferredHolder<Block, InventoryViewerBlock> INVENTORY_VIEWER = BLOCK_REGISTER.register("inventory_viewer", InventoryViewerBlock::new);

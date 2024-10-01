@@ -35,7 +35,7 @@ import java.util.List;
 public class ZombifiedPiglinFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for zombifiedPiglins instead of iron golems
-    private static ResourceKey<LootTable> ZOMBIFIEDPIGLIN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/zombified_piglin"));
+    private static final ResourceKey<LootTable> ZOMBIFIEDPIGLIN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/zombified_piglin"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -47,6 +47,14 @@ public class ZombifiedPiglinFarmTileentity extends VillagerTileentity implements
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getZombifiedPiglinSpawnTime() {
+        return Main.SERVER_CONFIG.zombifiedPiglinSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getZombifiedPiglinKillTime() {
+        return getZombifiedPiglinSpawnTime() + 20 * 10;
     }
 
     public long getTimer() {
@@ -87,10 +95,9 @@ public class ZombifiedPiglinFarmTileentity extends VillagerTileentity implements
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new ZombifiedPiglin(EntityType.ZOMBIFIED_PIGLIN, level)) // Change to ZombifiedPiglin
@@ -120,14 +127,6 @@ public class ZombifiedPiglinFarmTileentity extends VillagerTileentity implements
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getZombifiedPiglinSpawnTime() {
-        return Main.SERVER_CONFIG.zombifiedPiglinSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getZombifiedPiglinKillTime() {
-        return getZombifiedPiglinSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

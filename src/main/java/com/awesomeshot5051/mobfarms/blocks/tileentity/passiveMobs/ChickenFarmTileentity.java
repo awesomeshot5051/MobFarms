@@ -1,12 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -36,7 +36,7 @@ import java.util.List;
 public class ChickenFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for chickens instead of iron golems
-    private static ResourceKey<LootTable> CHICKEN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/chicken"));
+    private static final ResourceKey<LootTable> CHICKEN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/chicken"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -48,6 +48,14 @@ public class ChickenFarmTileentity extends VillagerTileentity implements ITickab
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getChickenSpawnTime() {
+        return Main.SERVER_CONFIG.chickenSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getChickenKillTime() {
+        return getChickenSpawnTime() + 20 * 10;
     }
 
     public long getTimer() {
@@ -88,10 +96,9 @@ public class ChickenFarmTileentity extends VillagerTileentity implements ITickab
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Chicken(EntityType.CHICKEN, level)) // Change to Chicken
@@ -121,14 +128,6 @@ public class ChickenFarmTileentity extends VillagerTileentity implements ITickab
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getChickenSpawnTime() {
-        return Main.SERVER_CONFIG.chickenSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getChickenKillTime() {
-        return getChickenSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

@@ -1,12 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -34,7 +34,7 @@ import java.util.List;
 
 public class CreeperFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> CREEPER_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/creeper"));
+    private static final ResourceKey<LootTable> CREEPER_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/creeper"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -47,6 +47,14 @@ public class CreeperFarmTileentity extends VillagerTileentity implements ITickab
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getCreeperSpawnTime() {
+        return Main.SERVER_CONFIG.creeperSpawnTime.get() - 20 * 4;
+    }
+
+    public static int getCreeperExplodeTime() {
+        return getCreeperSpawnTime() + 20 * 4; // 30 seconds spawn time + 10 seconds kill time
     }
 
     public long getTimer() {
@@ -87,10 +95,9 @@ public class CreeperFarmTileentity extends VillagerTileentity implements ITickab
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Creeper(EntityType.CREEPER, level))
@@ -121,15 +128,6 @@ public class CreeperFarmTileentity extends VillagerTileentity implements ITickab
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getCreeperSpawnTime() {
-        return Main.SERVER_CONFIG.creeperSpawnTime.get() - 20 * 4;
-    }
-
-
-    public static int getCreeperExplodeTime() {
-        return getCreeperSpawnTime() + 20 * 4; // 30 seconds spawn time + 10 seconds kill time
     }
 
     public IItemHandler getItemHandler() {

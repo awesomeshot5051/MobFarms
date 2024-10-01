@@ -1,9 +1,9 @@
 package com.awesomeshot5051.mobfarms.gui;
 
-import com.mojang.datafixers.util.Pair;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.InventoryViewerTileentity;
 import com.awesomeshot5051.mobfarms.entity.EasyVillagerEntity;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
@@ -24,8 +24,6 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 public class InventoryViewerContainer extends ModContainerBase {
 
-    private static final EquipmentSlot[] SLOT_IDS = new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
-
     public static final ResourceLocation EMPTY_ARMOR_SLOT_HELMET = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet");
     public static final ResourceLocation EMPTY_ARMOR_SLOT_CHESTPLATE = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate");
     public static final ResourceLocation EMPTY_ARMOR_SLOT_LEGGINGS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings");
@@ -33,7 +31,7 @@ public class InventoryViewerContainer extends ModContainerBase {
     public static final ResourceLocation[] TEXTURE_EMPTY_SLOTS = new ResourceLocation[]{
             EMPTY_ARMOR_SLOT_BOOTS, EMPTY_ARMOR_SLOT_LEGGINGS, EMPTY_ARMOR_SLOT_CHESTPLATE, EMPTY_ARMOR_SLOT_HELMET
     };
-
+    private static final EquipmentSlot[] SLOT_IDS = new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
     protected InventoryViewerTileentity inventoryViewer;
     protected EasyVillagerEntity villager;
 
@@ -69,7 +67,7 @@ public class InventoryViewerContainer extends ModContainerBase {
                 @Override
                 public boolean mayPickup(Player player) {
                     ItemStack itemstack = getItem();
-                    return !itemstack.isEmpty() && !player.isCreative() && EnchantmentHelper.has(itemstack, EnchantmentEffectComponents.PREVENT_ARMOR_CHANGE) ? false : super.mayPickup(player);
+                    return (itemstack.isEmpty() || player.isCreative() || !EnchantmentHelper.has(itemstack, EnchantmentEffectComponents.PREVENT_ARMOR_CHANGE)) && super.mayPickup(player);
                 }
 
                 @Override

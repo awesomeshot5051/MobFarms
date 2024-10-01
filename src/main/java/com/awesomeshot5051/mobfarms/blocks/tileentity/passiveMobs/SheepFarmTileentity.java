@@ -34,7 +34,7 @@ import java.util.List;
 
 public class SheepFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> SHEEP_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/sheep"));
+    private static final ResourceKey<LootTable> SHEEP_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/sheep"));
 
     protected NonNullList<ItemStack> inventory;
 
@@ -50,50 +50,57 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
         outputItemHandler = new OutputItemHandler(inventory);
     }
 
+    public static int getSheepSpawnTime() {
+        return Main.SERVER_CONFIG.sheepSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getSheepKillTime() {
+        return getSheepSpawnTime() + 20 * 10;
+    }
+
     public long getTimer() {
         return timer;
     }
 
     @Override
     public void tick() {
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
 
 //            if (advanceAge()) {
 //                sync();
 //            }
 
-            timer++;
-            setChanged();
+        timer++;
+        setChanged();
 
-            if (timer == getSheepSpawnTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
-                sync();
-            } else if (timer > getSheepSpawnTime() && timer < getSheepKillTime()) {
-                if (timer % 20L == 0L) {
-                    // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SHEEP_HURT);
-                }
-            } else if (timer >= getSheepKillTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SHEEP_DEATH);
-                for (ItemStack drop : getDrops()) {
-                    for (int i = 0; i < itemHandler.getSlots(); i++) {
-                        drop = itemHandler.insertItem(i, drop, false);
-                        if (drop.isEmpty()) {
-                            break;
-                        }
+        if (timer == getSheepSpawnTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+            sync();
+        } else if (timer > getSheepSpawnTime() && timer < getSheepKillTime()) {
+            if (timer % 20L == 0L) {
+                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SHEEP_HURT);
+            }
+        } else if (timer >= getSheepKillTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SHEEP_DEATH);
+            for (ItemStack drop : getDrops()) {
+                for (int i = 0; i < itemHandler.getSlots(); i++) {
+                    drop = itemHandler.insertItem(i, drop, false);
+                    if (drop.isEmpty()) {
+                        break;
                     }
                 }
-
-                timer = 0L;
-                sync();
             }
+
+            timer = 0L;
+            sync();
+        }
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Sheep(EntityType.SHEEP, level))
@@ -124,14 +131,6 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getSheepSpawnTime() {
-        return Main.SERVER_CONFIG.sheepSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getSheepKillTime() {
-        return getSheepSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

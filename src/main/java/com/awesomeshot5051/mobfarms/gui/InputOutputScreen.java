@@ -1,7 +1,7 @@
 package com.awesomeshot5051.mobfarms.gui;
 
-import de.maxhenkel.corelib.inventory.ScreenBase;
 import com.awesomeshot5051.mobfarms.Main;
+import de.maxhenkel.corelib.inventory.ScreenBase;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -13,7 +13,7 @@ public abstract class InputOutputScreen<T extends AbstractContainerMenu> extends
 
     public static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(Main.MODID, "textures/gui/container/input_output.png");
 
-    private Inventory playerInventory;
+    private final Inventory playerInventory;
 
     public InputOutputScreen(T container, Inventory playerInventory, Component name) {
         super(BACKGROUND, container, playerInventory, name);

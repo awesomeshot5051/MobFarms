@@ -34,7 +34,7 @@ import java.util.List;
 
 public class SquidFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> SQUID_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/squid"));
+    private static final ResourceKey<LootTable> SQUID_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/squid"));
 
     protected NonNullList<ItemStack> inventory;
 
@@ -50,50 +50,57 @@ public class SquidFarmTileentity extends VillagerTileentity implements ITickable
         outputItemHandler = new OutputItemHandler(inventory);
     }
 
+    public static int getSquidSpawnTime() {
+        return Main.SERVER_CONFIG.squidSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getSquidKillTime() {
+        return getSquidSpawnTime() + 20 * 10;
+    }
+
     public long getTimer() {
         return timer;
     }
 
     @Override
     public void tick() {
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
 
 //            if (advanceAge()) {
 //                sync();
 //            }
 
-            timer++;
-            setChanged();
+        timer++;
+        setChanged();
 
-            if (timer == getSquidSpawnTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
-                sync();
-            } else if (timer > getSquidSpawnTime() && timer < getSquidKillTime()) {
-                if (timer % 20L == 0L) {
-                    // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SQUID_HURT);
-                }
-            } else if (timer >= getSquidKillTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SQUID_DEATH);
-                for (ItemStack drop : getDrops()) {
-                    for (int i = 0; i < itemHandler.getSlots(); i++) {
-                        drop = itemHandler.insertItem(i, drop, false);
-                        if (drop.isEmpty()) {
-                            break;
-                        }
+        if (timer == getSquidSpawnTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+            sync();
+        } else if (timer > getSquidSpawnTime() && timer < getSquidKillTime()) {
+            if (timer % 20L == 0L) {
+                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SQUID_HURT);
+            }
+        } else if (timer >= getSquidKillTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.SQUID_DEATH);
+            for (ItemStack drop : getDrops()) {
+                for (int i = 0; i < itemHandler.getSlots(); i++) {
+                    drop = itemHandler.insertItem(i, drop, false);
+                    if (drop.isEmpty()) {
+                        break;
                     }
                 }
-
-                timer = 0L;
-                sync();
             }
+
+            timer = 0L;
+            sync();
         }
+    }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Squid(EntityType.SQUID, level))
@@ -124,14 +131,6 @@ public class SquidFarmTileentity extends VillagerTileentity implements ITickable
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getSquidSpawnTime() {
-        return Main.SERVER_CONFIG.squidSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getSquidKillTime() {
-        return getSquidSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

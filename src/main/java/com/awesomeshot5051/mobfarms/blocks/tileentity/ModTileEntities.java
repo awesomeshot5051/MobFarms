@@ -2,12 +2,13 @@ package com.awesomeshot5051.mobfarms.blocks.tileentity;
 
 import com.awesomeshot5051.mobfarms.Main;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs.*;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs.BlazeFarmTileentity;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.aggressiveMobs.CreeperFarmTileentity;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.*;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.*;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.render.passiveMobs.*;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.render.aggressiveMobs.*;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.render.aggressiveMobs.CreeperFarmRenderer;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.render.neutralMobs.*;
+import com.awesomeshot5051.mobfarms.blocks.tileentity.render.passiveMobs.*;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -124,103 +125,76 @@ public class ModTileEntities {
     );
 
 
-//    // Aggressive Mobs
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazeFarmTileentity>> BLAZE_FARM = BLOCK_ENTITY_REGISTER.register("blaze_farm", () ->
-//            BlockEntityType.Builder.of(BlazeFarmTileentity::new, ModBlocks.BLAZE_FARM.get()).build(null)
-//    );
+    //
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DrownedFarmTileentity>> DROWNED_FARM = BLOCK_ENTITY_REGISTER.register("drowned_farm", () ->
+            BlockEntityType.Builder.of(DrownedFarmTileentity::new, ModBlocks.DROWNED_FARM.get()).build(null)
+    );//    // Aggressive Mobs
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ElderGuardianFarmTileentity>> ELDER_GUARDIAN_FARM = BLOCK_ENTITY_REGISTER.register("elder_guardian_farm", () ->
+            BlockEntityType.Builder.of(ElderGuardianFarmTileentity::new, ModBlocks.ELDER_GUARDIAN_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EvokerFarmTileentity>> EVOKER_FARM = BLOCK_ENTITY_REGISTER.register("evoker_farm", () ->
+            BlockEntityType.Builder.of(EvokerFarmTileentity::new, ModBlocks.EVOKER_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GhastFarmTileentity>> GHAST_FARM = BLOCK_ENTITY_REGISTER.register("ghast_farm", () ->
+            BlockEntityType.Builder.of(GhastFarmTileentity::new, ModBlocks.GHAST_FARM.get()).build(null)
+    );    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazeFarmTileentity>> BLAZE_FARM = BLOCK_ENTITY_REGISTER.register("blaze_farm", () ->
+            BlockEntityType.Builder.of(BlazeFarmTileentity::new, ModBlocks.BLAZE_FARM.get()).build(null)
+    );
 //
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CreeperFarmTileentity>> CREEPER_FARM = BLOCK_ENTITY_REGISTER.register("creeper_farm", () ->
             BlockEntityType.Builder.of(CreeperFarmTileentity::new, ModBlocks.CREEPER_FARM.get()).build(null)
     );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DrownedFarmTileentity>> DROWNED_FARM = BLOCK_ENTITY_REGISTER.register("drowned_farm", () ->
-//            BlockEntityType.Builder.of(DrownedFarmTileentity::new, ModBlocks.DROWNED_FARM.get()).build(null)
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GuardianFarmTileentity>> GUARDIAN_FARM = BLOCK_ENTITY_REGISTER.register("guardian_farm", () ->
+            BlockEntityType.Builder.of(GuardianFarmTileentity::new, ModBlocks.GUARDIAN_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HoglinFarmTileentity>> HOGLIN_FARM = BLOCK_ENTITY_REGISTER.register("hoglin_farm", () ->
+            BlockEntityType.Builder.of(HoglinFarmTileentity::new, ModBlocks.HOGLIN_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IllusionerFarmTileentity>> ILLUSIONER_FARM = BLOCK_ENTITY_REGISTER.register("illusioner_farm", () ->
+            BlockEntityType.Builder.of(IllusionerFarmTileentity::new, ModBlocks.ILLUSIONER_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MagmaCubeFarmTileentity>> MAGMA_CUBE_FARM = BLOCK_ENTITY_REGISTER.register("magma_cube_farm", () ->
+            BlockEntityType.Builder.of(MagmaCubeFarmTileentity::new, ModBlocks.MAGMA_CUBE_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PhantomFarmTileentity>> PHANTOM_FARM = BLOCK_ENTITY_REGISTER.register("phantom_farm", () ->
+            BlockEntityType.Builder.of(PhantomFarmTileentity::new, ModBlocks.PHANTOM_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PillagerFarmTileentity>> PILLAGER_FARM = BLOCK_ENTITY_REGISTER.register("pillager_farm", () ->
+            BlockEntityType.Builder.of(PillagerFarmTileentity::new, ModBlocks.PILLAGER_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RavagerFarmTileentity>> RAVAGER_FARM = BLOCK_ENTITY_REGISTER.register("ravager_farm", () ->
+            BlockEntityType.Builder.of(RavagerFarmTileentity::new, ModBlocks.RAVAGER_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShulkerFarmTileentity>> SHULKER_FARM = BLOCK_ENTITY_REGISTER.register("shulker_farm", () ->
+            BlockEntityType.Builder.of(ShulkerFarmTileentity::new, ModBlocks.SHULKER_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SkeletonFarmTileentity>> SKELETON_FARM = BLOCK_ENTITY_REGISTER.register("skeleton_farm", () ->
+            BlockEntityType.Builder.of(SkeletonFarmTileentity::new, ModBlocks.SKELETON_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SlimeFarmTileentity>> SLIME_FARM = BLOCK_ENTITY_REGISTER.register("slime_farm", () ->
+            BlockEntityType.Builder.of(SlimeFarmTileentity::new, ModBlocks.SLIME_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<VindicatorFarmTileentity>> VINDICATOR_FARM = BLOCK_ENTITY_REGISTER.register("vindicator_farm", () ->
+            BlockEntityType.Builder.of(VindicatorFarmTileentity::new, ModBlocks.VINDICATOR_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WardenFarmTileentity>> WARDEN_FARM = BLOCK_ENTITY_REGISTER.register("warden_farm", () ->
+            BlockEntityType.Builder.of(WardenFarmTileentity::new, ModBlocks.WARDEN_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WitchFarmTileentity>> WITCH_FARM = BLOCK_ENTITY_REGISTER.register("witch_farm", () ->
+            BlockEntityType.Builder.of(WitchFarmTileentity::new, ModBlocks.WITCH_FARM.get()).build(null)
+    );
+    //    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WitherFarmTileentity>> WITHER_FARM = BLOCK_ENTITY_REGISTER.register("wither_farm", () ->
+//            BlockEntityType.Builder.of(WitherFarmTileentity::new, ModBlocks.WITHER_FARM.get()).build(null)
 //    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ElderGuardianFarmTileentity>> ELDER_GUARDIAN_FARM = BLOCK_ENTITY_REGISTER.register("elder_guardian_farm", () ->
-//            BlockEntityType.Builder.of(ElderGuardianFarmTileentity::new, ModBlocks.ELDER_GUARDIAN_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EvokerFarmTileentity>> EVOKER_FARM = BLOCK_ENTITY_REGISTER.register("evoker_farm", () ->
-//            BlockEntityType.Builder.of(EvokerFarmTileentity::new, ModBlocks.EVOKER_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GhastFarmTileentity>> GHAST_FARM = BLOCK_ENTITY_REGISTER.register("ghast_farm", () ->
-//            BlockEntityType.Builder.of(GhastFarmTileentity::new, ModBlocks.GHAST_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GuardianFarmTileentity>> GUARDIAN_FARM = BLOCK_ENTITY_REGISTER.register("guardian_farm", () ->
-//            BlockEntityType.Builder.of(GuardianFarmTileentity::new, ModBlocks.GUARDIAN_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HoglinFarmTileentity>> HOGLIN_FARM = BLOCK_ENTITY_REGISTER.register("hoglin_farm", () ->
-//            BlockEntityType.Builder.of(HoglinFarmTileentity::new, ModBlocks.HOGLIN_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IllusionerFarmTileentity>> ILLUSIONER_FARM = BLOCK_ENTITY_REGISTER.register("illusioner_farm", () ->
-//            BlockEntityType.Builder.of(IllusionerFarmTileentity::new, ModBlocks.ILLUSIONER_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MagmaCubeFarmTileentity>> MAGMA_CUBE_FARM = BLOCK_ENTITY_REGISTER.register("magma_cube_farm", () ->
-//            BlockEntityType.Builder.of(MagmaCubeFarmTileentity::new, ModBlocks.MAGMA_CUBE_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PhantomFarmTileentity>> PHANTOM_FARM = BLOCK_ENTITY_REGISTER.register("phantom_farm", () ->
-//            BlockEntityType.Builder.of(PhantomFarmTileentity::new, ModBlocks.PHANTOM_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PillagerFarmTileentity>> PILLAGER_FARM = BLOCK_ENTITY_REGISTER.register("pillager_farm", () ->
-//            BlockEntityType.Builder.of(PillagerFarmTileentity::new, ModBlocks.PILLAGER_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RavagerFarmTileentity>> RAVAGER_FARM = BLOCK_ENTITY_REGISTER.register("ravager_farm", () ->
-//            BlockEntityType.Builder.of(RavagerFarmTileentity::new, ModBlocks.RAVAGER_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShulkerFarmTileentity>> SHULKER_FARM = BLOCK_ENTITY_REGISTER.register("shulker_farm", () ->
-//            BlockEntityType.Builder.of(ShulkerFarmTileentity::new, ModBlocks.SHULKER_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SkeletonFarmTileentity>> SKELETON_FARM = BLOCK_ENTITY_REGISTER.register("skeleton_farm", () ->
-//            BlockEntityType.Builder.of(SkeletonFarmTileentity::new, ModBlocks.SKELETON_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SlimeFarmTileentity>> SLIME_FARM = BLOCK_ENTITY_REGISTER.register("slime_farm", () ->
-//            BlockEntityType.Builder.of(SlimeFarmTileentity::new, ModBlocks.SLIME_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<VexFarmTileentity>> VEX_FARM = BLOCK_ENTITY_REGISTER.register("vex_farm", () ->
-//            BlockEntityType.Builder.of(VexFarmTileentity::new, ModBlocks.VEX_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<VindicatorFarmTileentity>> VINDICATOR_FARM = BLOCK_ENTITY_REGISTER.register("vindicator_farm", () ->
-//            BlockEntityType.Builder.of(VindicatorFarmTileentity::new, ModBlocks.VINDICATOR_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WardenFarmTileentity>> WARDEN_FARM = BLOCK_ENTITY_REGISTER.register("warden_farm", () ->
-//            BlockEntityType.Builder.of(WardenFarmTileentity::new, ModBlocks.WARDEN_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WitchFarmTileentity>> WITCH_FARM = BLOCK_ENTITY_REGISTER.register("witch_farm", () ->
-//            BlockEntityType.Builder.of(WitchFarmTileentity::new, ModBlocks.WITCH_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WitherSkeletonFarmTileentity>> WITHER_SKELETON_FARM = BLOCK_ENTITY_REGISTER.register("wither_skeleton_farm", () ->
-//            BlockEntityType.Builder.of(WitherSkeletonFarmTileentity::new, ModBlocks.WITHER_SKELETON_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ZoglinFarmTileentity>> ZOGLIN_FARM = BLOCK_ENTITY_REGISTER.register("zoglin_farm", () ->
-//            BlockEntityType.Builder.of(ZoglinFarmTileentity::new, ModBlocks.ZOGLIN_FARM.get()).build(null)
-//    );
-//
-//    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ZombieFarmTileentity>> ZOMBIE_FARM = BLOCK_ENTITY_REGISTER.register("zombie_farm", () ->
-//            BlockEntityType.Builder.of(ZombieFarmTileentity::new, ModBlocks.ZOMBIE_FARM.get()).build(null)
-//    );
-//
-//
-    public static void init(IEventBus eventBus) {
-        BLOCK_ENTITY_REGISTER.register(eventBus);
-    }
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WitherSkeletonFarmTileentity>> WITHER_SKELETON_FARM = BLOCK_ENTITY_REGISTER.register("wither_skeleton_farm", () ->
+            BlockEntityType.Builder.of(WitherSkeletonFarmTileentity::new, ModBlocks.WITHER_SKELETON_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ZoglinFarmTileentity>> ZOGLIN_FARM = BLOCK_ENTITY_REGISTER.register("zoglin_farm", () ->
+            BlockEntityType.Builder.of(ZoglinFarmTileentity::new, ModBlocks.ZOGLIN_FARM.get()).build(null)
+    );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ZombieFarmTileentity>> ZOMBIE_FARM = BLOCK_ENTITY_REGISTER.register("zombie_farm", () ->
+            BlockEntityType.Builder.of(ZombieFarmTileentity::new, ModBlocks.ZOMBIE_FARM.get()).build(null)
+    );
 
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         //passive mobs
@@ -267,7 +241,7 @@ public class ModTileEntities {
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SHULKER_FARM.get(), (object, context) -> object.getItemHandler());
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SKELETON_FARM.get(), (object, context) -> object.getItemHandler());
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SLIME_FARM.get(), (object, context) -> object.getItemHandler());
-//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, VEX_FARM.get(), (object, context) -> object.getItemHandler());
+//        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITHER_FARM.get(), (object, context) -> object.getItemHandler());
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, VINDICATOR_FARM.get(), (object, context) -> object.getItemHandler());
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WARDEN_FARM.get(), (object, context) -> object.getItemHandler());
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, WITCH_FARM.get(), (object, context) -> object.getItemHandler());
@@ -275,6 +249,10 @@ public class ModTileEntities {
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOGLIN_FARM.get(), (object, context) -> object.getItemHandler());
 //        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ZOMBIE_FARM.get(), (object, context) -> object.getItemHandler());
 //
+    }
+
+    public static void init(IEventBus eventBus) {
+        BLOCK_ENTITY_REGISTER.register(eventBus);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -326,7 +304,7 @@ public class ModTileEntities {
 //        BlockEntityRenderers.register(ModTileEntities.SHULKER_FARM.get(), ShulkerFarmRenderer::new);
 //        BlockEntityRenderers.register(ModTileEntities.SKELETON_FARM.get(), SkeletonFarmRenderer::new);
 //        BlockEntityRenderers.register(ModTileEntities.SLIME_FARM.get(), SlimeFarmRenderer::new);
-//        BlockEntityRenderers.register(ModTileEntities.VEX_FARM.get(), VexFarmRenderer::new);
+//        BlockEntityRenderers.register(ModTileEntities.WITHER_FARM.get(), WitherFarmRenderer::new);
 //        BlockEntityRenderers.register(ModTileEntities.VINDICATOR_FARM.get(), VindicatorFarmRenderer::new);
 //        BlockEntityRenderers.register(ModTileEntities.WARDEN_FARM.get(), WardenFarmRenderer::new);
 //        BlockEntityRenderers.register(ModTileEntities.WITCH_FARM.get(), WitchFarmRenderer::new);
@@ -335,4 +313,8 @@ public class ModTileEntities {
 
 
     }
+
+
+
+
 }

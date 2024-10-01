@@ -1,12 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -17,16 +17,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
@@ -36,7 +30,7 @@ import java.util.List;
 public class GoatFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for goats instead of iron golems
-    private static ResourceKey<LootTable> GOAT_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/goat"));
+    private static final ResourceKey<LootTable> GOAT_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/goat"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -48,6 +42,14 @@ public class GoatFarmTileentity extends VillagerTileentity implements ITickableB
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getGoatSpawnTime() {
+        return Main.SERVER_CONFIG.goatSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getGoatKillTime() {
+        return getGoatSpawnTime() + 20 * 10;
     }
 
     public long getTimer() {
@@ -87,22 +89,33 @@ public class GoatFarmTileentity extends VillagerTileentity implements ITickableB
         }
     }
 
+    //    private List<ItemStack> getDrops() {
+//        if (!(level instanceof ServerLevel)) {
+//            return Collections.emptyList();
+//        }
+//        ServerLevel serverWorld = (ServerLevel) level;
+//
+//        LootParams.Builder builder = new LootParams.Builder(serverWorld)
+//                .withParameter(LootContextParams.THIS_ENTITY, new Goat(EntityType.GOAT, level)) // Change to Goat
+//                .withParameter(LootContextParams.ORIGIN, new Vec3(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()))
+//                .withParameter(LootContextParams.DAMAGE_SOURCE, serverWorld.damageSources().lava());
+//
+//        LootParams lootContext = builder.create(LootContextParamSets.ENTITY);
+//
+//        LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(GOAT_LOOT_TABLE);
+//
+//        return lootTable.getRandomItems(lootContext);
+//    }
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
-        LootParams.Builder builder = new LootParams.Builder(serverWorld)
-                .withParameter(LootContextParams.THIS_ENTITY, new Goat(EntityType.GOAT, level)) // Change to Goat
-                .withParameter(LootContextParams.ORIGIN, new Vec3(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()))
-                .withParameter(LootContextParams.DAMAGE_SOURCE, serverWorld.damageSources().lava());
+        // Create an ItemStack for the goat horn
+        ItemStack goatHorn = new ItemStack(Items.GOAT_HORN);
 
-        LootParams lootContext = builder.create(LootContextParamSets.ENTITY);
-
-        LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(GOAT_LOOT_TABLE);
-
-        return lootTable.getRandomItems(lootContext);
+        // Return a list containing the goat horn
+        return Collections.singletonList(goatHorn);
     }
 
     public Container getOutputInventory() {
@@ -121,14 +134,6 @@ public class GoatFarmTileentity extends VillagerTileentity implements ITickableB
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getGoatSpawnTime() {
-        return Main.SERVER_CONFIG.goatSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getGoatKillTime() {
-        return getGoatSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

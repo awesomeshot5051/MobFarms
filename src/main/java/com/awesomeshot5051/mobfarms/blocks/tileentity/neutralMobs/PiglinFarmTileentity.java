@@ -1,12 +1,12 @@
 package com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs;
 
+import com.awesomeshot5051.mobfarms.Main;
+import com.awesomeshot5051.mobfarms.OutputItemHandler;
+import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.VillagerTileentity;
 import de.maxhenkel.corelib.blockentity.ITickableBlockEntity;
 import de.maxhenkel.corelib.inventory.ItemListInventory;
-import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.OutputItemHandler;
-import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -20,7 +20,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.item.ItemStack;
-//import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -36,7 +35,7 @@ import java.util.List;
 public class PiglinFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for piglins instead of iron golems
-    private static ResourceKey<LootTable> PIGLIN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/piglin"));
+    private static final ResourceKey<LootTable> PIGLIN_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/piglin"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -48,6 +47,14 @@ public class PiglinFarmTileentity extends VillagerTileentity implements ITickabl
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getPiglinSpawnTime() {
+        return Main.SERVER_CONFIG.piglinSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getPiglinKillTime() {
+        return getPiglinSpawnTime() + 20 * 10;
     }
 
     public long getTimer() {
@@ -88,10 +95,9 @@ public class PiglinFarmTileentity extends VillagerTileentity implements ITickabl
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Piglin(EntityType.PIGLIN, level)) // Change to Piglin
@@ -121,14 +127,6 @@ public class PiglinFarmTileentity extends VillagerTileentity implements ITickabl
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getPiglinSpawnTime() {
-        return Main.SERVER_CONFIG.piglinSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getPiglinKillTime() {
-        return getPiglinSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

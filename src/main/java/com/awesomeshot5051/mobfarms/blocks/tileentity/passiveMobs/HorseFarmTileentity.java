@@ -34,7 +34,7 @@ import java.util.List;
 
 public class HorseFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> HORSE_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/horse"));
+    private static final ResourceKey<LootTable> HORSE_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/horse"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -46,6 +46,14 @@ public class HorseFarmTileentity extends VillagerTileentity implements ITickable
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getHorseSpawnTime() {
+        return Main.SERVER_CONFIG.horseSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getHorseKillTime() {
+        return getHorseSpawnTime() + 20 * 10;
     }
 
     public long getTimer() {
@@ -75,10 +83,9 @@ public class HorseFarmTileentity extends VillagerTileentity implements ITickable
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Horse(EntityType.HORSE, level))
@@ -108,14 +115,6 @@ public class HorseFarmTileentity extends VillagerTileentity implements ITickable
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getHorseSpawnTime() {
-        return Main.SERVER_CONFIG.horseSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getHorseKillTime() {
-        return getHorseSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

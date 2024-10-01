@@ -3,14 +3,13 @@ package com.awesomeshot5051.mobfarms.blocks.passiveMobs;
 import com.awesomeshot5051.mobfarms.blocks.BlockBase;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.CodFarmTileentity;
-import com.awesomeshot5051.mobfarms.blocks.tileentity.passiveMobs.CodFarmTileentity;
+import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
+import com.awesomeshot5051.mobfarms.gui.OutputContainer;
 import com.awesomeshot5051.mobfarms.items.render.passiveMobs.CodFarmItemRenderer;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
 import de.maxhenkel.corelib.client.ItemRenderer;
-import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
-import com.awesomeshot5051.mobfarms.gui.OutputContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -67,10 +66,9 @@ public class CodFarmBlock extends BlockBase implements EntityBlock, IItemBlock {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof CodFarmTileentity)) { // Check for CreeperFarmTileentity
+        if (!(tileEntity instanceof CodFarmTileentity farm)) { // Check for CreeperFarmTileentity
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        CodFarmTileentity farm = (CodFarmTileentity) tileEntity;
 
         // Directly open the container without villager checks
         player.openMenu(new MenuProvider() {

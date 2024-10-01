@@ -32,8 +32,8 @@ public class Containers {
 
     @OnlyIn(Dist.CLIENT)
     public static void onRegisterScreens(RegisterMenuScreensEvent containers) {
-        containers.<OutputContainer, OutputScreen>register(OUTPUT_CONTAINER.get(), OutputScreen::new);
-        containers.<InventoryViewerContainer, InventoryViewerScreen>register(INVENTORY_VIEWER_CONTAINER.get(), InventoryViewerScreen::new);
+        containers.register(OUTPUT_CONTAINER.get(), OutputScreen::new);
+        containers.register(INVENTORY_VIEWER_CONTAINER.get(), InventoryViewerScreen::new);
     }
 
 }

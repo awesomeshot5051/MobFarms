@@ -34,7 +34,7 @@ import java.util.List;
 
 public class TropicalFishFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
-    private static ResourceKey<LootTable> TROPICAL_FISH_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/tropical_fish"));
+    private static final ResourceKey<LootTable> TROPICAL_FISH_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/tropical_fish"));
 
     protected NonNullList<ItemStack> inventory;
 
@@ -50,50 +50,57 @@ public class TropicalFishFarmTileentity extends VillagerTileentity implements IT
         outputItemHandler = new OutputItemHandler(inventory);
     }
 
+    public static int getTropicalFishSpawnTime() {
+        return Main.SERVER_CONFIG.tropicalFishSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getTropicalFishKillTime() {
+        return getTropicalFishSpawnTime() + 20 * 10;
+    }
+
     public long getTimer() {
         return timer;
     }
 
     @Override
     public void tick() {
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
-            // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.VILLAGER_AMBIENT);
+        // VillagerBlockBase.playRandomVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
 
 //            if (advanceAge()) {
 //                sync();
 //            }
 
-            timer++;
-            setChanged();
+        timer++;
+        setChanged();
 
-            if (timer == getTropicalFishSpawnTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
-                sync();
-            } else if (timer > getTropicalFishSpawnTime() && timer < getTropicalFishKillTime()) {
-                if (timer % 20L == 0L) {
-                    // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TROPICAL_FISH_HURT);
-                }
-            } else if (timer >= getTropicalFishKillTime()) {
-                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TROPICAL_FISH_DEATH);
-                for (ItemStack drop : getDrops()) {
-                    for (int i = 0; i < itemHandler.getSlots(); i++) {
-                        drop = itemHandler.insertItem(i, drop, false);
-                        if (drop.isEmpty()) {
-                            break;
-                        }
+        if (timer == getTropicalFishSpawnTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.ZOMBIE_AMBIENT);
+            sync();
+        } else if (timer > getTropicalFishSpawnTime() && timer < getTropicalFishKillTime()) {
+            if (timer % 20L == 0L) {
+                // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TROPICAL_FISH_HURT);
+            }
+        } else if (timer >= getTropicalFishKillTime()) {
+            // VillagerBlockBase.playVillagerSound(level, getBlockPos(), SoundEvents.TROPICAL_FISH_DEATH);
+            for (ItemStack drop : getDrops()) {
+                for (int i = 0; i < itemHandler.getSlots(); i++) {
+                    drop = itemHandler.insertItem(i, drop, false);
+                    if (drop.isEmpty()) {
+                        break;
                     }
                 }
-
-                timer = 0L;
-                sync();
             }
+
+            timer = 0L;
+            sync();
         }
+    }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new TropicalFish(EntityType.TROPICAL_FISH, level))
@@ -124,14 +131,6 @@ public class TropicalFishFarmTileentity extends VillagerTileentity implements IT
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getTropicalFishSpawnTime() {
-        return Main.SERVER_CONFIG.tropicalFishSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getTropicalFishKillTime() {
-        return getTropicalFishSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {

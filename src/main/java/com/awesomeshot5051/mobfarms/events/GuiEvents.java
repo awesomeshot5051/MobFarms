@@ -2,21 +2,16 @@ package com.awesomeshot5051.mobfarms.events;
 
 import com.awesomeshot5051.mobfarms.ClientConfig;
 import com.awesomeshot5051.mobfarms.Main;
-import com.awesomeshot5051.mobfarms.entity.EasyVillagerEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.MerchantScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.inventory.MerchantMenu;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 
 public class GuiEvents {
 
@@ -65,14 +60,11 @@ public class GuiEvents {
 //        }
 
 
-
         Screen currentScreen = mc.screen;
 
-        if (!(currentScreen instanceof MerchantScreen)) {
+        if (!(currentScreen instanceof MerchantScreen screen)) {
             return;
         }
-
-        MerchantScreen screen = (MerchantScreen) currentScreen;
 
         mc.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1F));
     }

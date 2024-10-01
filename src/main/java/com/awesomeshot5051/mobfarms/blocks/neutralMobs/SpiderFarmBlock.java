@@ -3,13 +3,13 @@ package com.awesomeshot5051.mobfarms.blocks.neutralMobs;
 import com.awesomeshot5051.mobfarms.blocks.BlockBase;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.neutralMobs.SpiderFarmTileentity;
+import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
+import com.awesomeshot5051.mobfarms.gui.OutputContainer;
 import com.awesomeshot5051.mobfarms.items.render.neutralMobs.SpiderFarmItemRenderer;
 import de.maxhenkel.corelib.block.IItemBlock;
 import de.maxhenkel.corelib.blockentity.SimpleBlockEntityTicker;
 import de.maxhenkel.corelib.client.CustomRendererBlockItem;
 import de.maxhenkel.corelib.client.ItemRenderer;
-import com.awesomeshot5051.mobfarms.datacomponents.VillagerBlockEntityData;
-import com.awesomeshot5051.mobfarms.gui.OutputContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -66,10 +66,9 @@ public class SpiderFarmBlock extends BlockBase implements EntityBlock, IItemBloc
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (!(tileEntity instanceof SpiderFarmTileentity)) { // Check for SpiderFarmTileentity
+        if (!(tileEntity instanceof SpiderFarmTileentity farm)) { // Check for SpiderFarmTileentity
             return super.useItemOn(heldItem, state, worldIn, pos, player, handIn, hit);
         }
-        SpiderFarmTileentity farm = (SpiderFarmTileentity) tileEntity;
 
         // Directly open the container without villager checks
         player.openMenu(new MenuProvider() {

@@ -35,7 +35,7 @@ import java.util.List;
 public class GlowSquidFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
     // Update the loot table for pigs instead of iron golems
-    private static ResourceKey<LootTable> GLOWSQUID_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/glow_squid"));
+    private static final ResourceKey<LootTable> GLOWSQUID_LOOT_TABLE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/glow_squid"));
 
     protected NonNullList<ItemStack> inventory;
     protected long timer;
@@ -47,6 +47,14 @@ public class GlowSquidFarmTileentity extends VillagerTileentity implements ITick
         inventory = NonNullList.withSize(4, ItemStack.EMPTY);
         itemHandler = new ItemStackHandler(inventory);
         outputItemHandler = new OutputItemHandler(inventory);
+    }
+
+    public static int getGlowSquidSpawnTime() {
+        return Main.SERVER_CONFIG.glowSquidSpawnTime.get() - 20 * 10;
+    }
+
+    public static int getGlowSquidKillTime() {
+        return getGlowSquidSpawnTime() + 20 * 10;
     }
 
     public long getTimer() {
@@ -87,10 +95,9 @@ public class GlowSquidFarmTileentity extends VillagerTileentity implements ITick
     }
 
     private List<ItemStack> getDrops() {
-        if (!(level instanceof ServerLevel)) {
+        if (!(level instanceof ServerLevel serverWorld)) {
             return Collections.emptyList();
         }
-        ServerLevel serverWorld = (ServerLevel) level;
 
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new GlowSquid(EntityType.GLOW_SQUID, level)) // Change to Pig
@@ -120,14 +127,6 @@ public class GlowSquidFarmTileentity extends VillagerTileentity implements ITick
         ContainerHelper.loadAllItems(compound, inventory, provider);
         timer = compound.getLong("Timer");
         super.loadAdditional(compound, provider);
-    }
-
-    public static int getGlowSquidSpawnTime() {
-        return Main.SERVER_CONFIG.glowSquidSpawnTime.get() - 20 * 10;
-    }
-
-    public static int getGlowSquidKillTime() {
-        return getGlowSquidSpawnTime() + 20 * 10;
     }
 
     public IItemHandler getItemHandler() {
