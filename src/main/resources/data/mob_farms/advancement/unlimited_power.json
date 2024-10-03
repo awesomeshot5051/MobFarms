@@ -3,32 +3,34 @@
     "icon": {
       "item": "minecraft:nether_star"
     },
-    "title": {
-      "text": "UNLIMITED POWER!"
-    },
-    "description": {
-      "text": "Discover the recipe for the Wither Farm"
-    },
-    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "title": "UNLIMITED POWER!",
+    "description": "Discover the Crafting Recipe for the Wither Farm",
+    "frame": "task",
     "show_toast": true,
-    "announce_to_chat": false,
+    "announce_to_chat": true,
     "hidden": true
   },
   "criteria": {
-    "discover_wither_farm": {
-      "trigger": "minecraft:inventory_changed",
+    "wither_farm_crafted": {
+      "trigger": "mobfarms:wither_farm_trigger",
       "conditions": {
-        "items": [
-          {
-            "tag": "mob_farms:wither_farm"
-          }
-        ]
+        "item": {
+          "items": [
+            "mobfarms:wither_farm"
+          ]
+        }
       }
     }
   },
+  "requirements": [
+    [
+      "wither_farm_crafted"
+    ]
+  ],
   "rewards": {
     "recipes": [
-      "mob_farms:wither_farm"
-    ]
+      "mobfarms:wither_farm"
+    ],
+    "experience": 100
   }
 }
