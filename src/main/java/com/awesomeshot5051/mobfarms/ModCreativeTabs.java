@@ -65,7 +65,7 @@ public class ModCreativeTabs {
                     output.accept(new ItemStack(ModBlocks.SHULKER_FARM.get()));
                     output.accept(new ItemStack(ModBlocks.SKELETON_FARM.get()));
                     output.accept(new ItemStack(ModBlocks.SLIME_FARM.get()));
-//                    output.accept(new ItemStack(ModBlocks.WITHER_FARM.get()));
+                    output.accept(new ItemStack(ModBlocks.WITHER_FARM.get()));
                     output.accept(new ItemStack(ModBlocks.VINDICATOR_FARM.get()));
                     output.accept(new ItemStack(ModBlocks.WARDEN_FARM.get()));
                     output.accept(new ItemStack(ModBlocks.WITCH_FARM.get()));

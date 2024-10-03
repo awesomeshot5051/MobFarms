@@ -67,13 +67,12 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> VINDICATOR_FARM = ITEM_REGISTER.register("vindicator_farm", () -> ModBlocks.VINDICATOR_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> WARDEN_FARM = ITEM_REGISTER.register("warden_farm", () -> ModBlocks.WARDEN_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> WITCH_FARM = ITEM_REGISTER.register("witch_farm", () -> ModBlocks.WITCH_FARM.get().toItem());
-    //    public static final DeferredHolder<Item, Item> WITHER_FARM = ITEM_REGISTER.register("wither_farm", () -> ModBlocks.WITHER_FARM.get().toItem());
+    public static final DeferredHolder<Item, Item> WITHER_FARM = ITEM_REGISTER.register("wither_farm", () -> ModBlocks.WITHER_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> WITHER_SKELETON_FARM = ITEM_REGISTER.register("wither_skeleton_farm", () -> ModBlocks.WITHER_SKELETON_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> ZOGLIN_FARM = ITEM_REGISTER.register("zoglin_farm", () -> ModBlocks.ZOGLIN_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> ZOMBIE_FARM = ITEM_REGISTER.register("zombie_farm", () -> ModBlocks.ZOMBIE_FARM.get().toItem());
     public static final DeferredHolder<Item, Item> ICON_ITEM = ITEM_REGISTER.register("icon_item",
             () -> new IconItem(new Item.Properties()));
-
     private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE_REGISTER = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Main.MODID);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<VillagerData>> VILLAGER_DATA_COMPONENT = DATA_COMPONENT_TYPE_REGISTER.register("villager", () -> DataComponentType.<VillagerData>builder().persistent(VillagerData.CODEC).networkSynchronized(VillagerData.STREAM_CODEC).build());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<VillagerBlockEntityData>> BLOCK_ENTITY_DATA_COMPONENT = DATA_COMPONENT_TYPE_REGISTER.register("block_entity", () -> DataComponentType.<VillagerBlockEntityData>builder().networkSynchronized(VillagerBlockEntityData.STREAM_CODEC).build());

@@ -17,7 +17,8 @@
     }
   },
   "result": {
-    "id": "mob_farms:wither_farm",
+    "item": "mob_farms:wither_farm",
     "count": 1
-  }
+  },
+  "hidden": true
 }

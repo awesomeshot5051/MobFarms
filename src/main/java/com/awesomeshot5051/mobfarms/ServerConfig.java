@@ -57,6 +57,7 @@ public class ServerConfig extends ConfigBase {
     public final ModConfigSpec.IntValue zoglinSpawnTime;
     public final ModConfigSpec.IntValue zombieSpawnTime;
     public final ModConfigSpec.BooleanValue universalReputation;
+    public final ModConfigSpec.IntValue witherSpawnTime;
 
 
     public ServerConfig(ModConfigSpec.Builder builder) {
@@ -222,6 +223,9 @@ public class ServerConfig extends ConfigBase {
                 .defineInRange("witch_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
 
         witherSkeletonSpawnTime = builder
+                .comment("The time in ticks the wither skeleton farm takes to spawn a wither skeleton")
+                .defineInRange("wither_skeleton_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
+        witherSpawnTime = builder
                 .comment("The time in ticks the wither skeleton farm takes to spawn a wither skeleton")
                 .defineInRange("wither_skeleton_farm.spawn_time", 20 * 3, 20 * 3, 20 * 3);
 

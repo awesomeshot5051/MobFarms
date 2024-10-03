@@ -1,6 +1,7 @@
 package com.awesomeshot5051.mobfarms;
 
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
+import com.awesomeshot5051.mobfarms.blocks.aggressiveMobs.WitherFarmBlock;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
 import com.awesomeshot5051.mobfarms.events.BlockEvents;
 import com.awesomeshot5051.mobfarms.events.GuiEvents;
@@ -10,7 +11,7 @@ import com.awesomeshot5051.mobfarms.integration.IMC;
 import com.awesomeshot5051.mobfarms.items.ModItems;
 import com.awesomeshot5051.mobfarms.loottable.ModLootTables;
 import de.maxhenkel.corelib.CommonRegistry;
-import net.minecraft.client.KeyMapping;
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.IEventBus;
@@ -62,6 +63,11 @@ public class Main {
     public void commonSetup(FMLCommonSetupEvent event) {
 //        NeoForge.EVENT_BUS.register(new ModEvents());
         NeoForge.EVENT_BUS.register(new BlockEvents());
+
+    }
+
+    public boolean matches(ServerPlayer player, WitherFarmBlock witherFarmBlock) {
+        return true;
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -64,7 +64,7 @@ public class ModBlocks {
     public static final DeferredHolder<Block, WardenFarmBlock> WARDEN_FARM = BLOCK_REGISTER.register("warden_farm", WardenFarmBlock::new);
     public static final DeferredHolder<Block, WitchFarmBlock> WITCH_FARM = BLOCK_REGISTER.register("witch_farm", WitchFarmBlock::new);
     public static final DeferredHolder<Block, WitherSkeletonFarmBlock> WITHER_SKELETON_FARM = BLOCK_REGISTER.register("wither_skeleton_farm", WitherSkeletonFarmBlock::new);
-    //    public static final DeferredHolder<Block, WitherFarmBlock> WITHER_FARM = BLOCK_REGISTER.register("wither_farm",WitherFarmBlock::new);
+    public static final DeferredHolder<Block, WitherFarmBlock> WITHER_FARM = BLOCK_REGISTER.register("wither_farm", WitherFarmBlock::new);
     public static final DeferredHolder<Block, ZoglinFarmBlock> ZOGLIN_FARM = BLOCK_REGISTER.register("zoglin_farm", ZoglinFarmBlock::new);
     public static final DeferredHolder<Block, ZombieFarmBlock> ZOMBIE_FARM = BLOCK_REGISTER.register("zombie_farm", ZombieFarmBlock::new);
 

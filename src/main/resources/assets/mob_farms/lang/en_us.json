@@ -1,4 +1,6 @@
 {
+  "advancements.mob_farms.recipe.unlimited_power.desc": "Discover the Crafting Recipe of the Wither Farm",
+  "advancements.mob_farms.carts.unlimited_power.name": "UNLIMITED POWER!",
   "item.mob_farms.villager": "Villager",
   "item.mob_farms.baby_villager": "Baby Villager",
   "block.mob_farms.trader": "Trader",
@@ -44,6 +46,7 @@
   "block.mob_farms.skeleton_farm": "Skeleton Farm",
   "block.mob_farms.slime_farm": "Slime Farm",
   "block.mob_farms.witch_farm": "Witch Farm",
+  "block.mob_farms.wither_farm": "Wither Farm",
   "block.mob_farms.zombie_farm": "Zombie Farm",
   "block.mob_farms.wither_skeleton_farm": "Wither Skeleton Farm",
   "block.mob_farms.phantom_farm": "Phantom Farm",
