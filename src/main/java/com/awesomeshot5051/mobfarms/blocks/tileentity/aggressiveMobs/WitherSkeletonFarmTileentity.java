@@ -15,11 +15,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -108,7 +110,16 @@ public class WitherSkeletonFarmTileentity extends VillagerTileentity implements 
 
         LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(WITHERSKELETON_LOOT_TABLE);
 
-        return lootTable.getRandomItems(lootContext);
+        // Get the regular drops from the loot table
+        List<ItemStack> drops = lootTable.getRandomItems(lootContext);
+
+        // Add a 6% chance to drop a Wither Skeleton Skull
+        RandomSource random = serverWorld.getRandom(); // Get a random source from the server world
+        if (random.nextFloat() < 0.06f) { // 6% chance
+            drops.add(new ItemStack(Items.WITHER_SKELETON_SKULL)); // Replace with your item reference
+        }
+
+        return drops;
     }
 
     public Container getOutputInventory() {

@@ -24,7 +24,9 @@ runs
 run-data
 
 repo
-/MobList/
+MobList/*
+*.docx
+output.txt
 /src/main/java/com/awesomeshot5051/mobfarms/advancements/
 # Ignore Wither Farm specific files
 com/awesomeshot5051/mobfarms/blocks/aggressiveMobs/WitherFarmBlock.java
