@@ -1,5 +1,6 @@
 package com.awesomeshot5051.mobfarms;
 
+import com.awesomeshot5051.mobfarms.advancements.MobFarmsTriggerInstance;
 import com.awesomeshot5051.mobfarms.blocks.ModBlocks;
 import com.awesomeshot5051.mobfarms.blocks.aggressiveMobs.WitherFarmBlock;
 import com.awesomeshot5051.mobfarms.blocks.tileentity.ModTileEntities;
@@ -27,13 +28,12 @@ import org.apache.logging.log4j.Logger;
 @Mod(Main.MODID)
 public class Main {
 
+
     public static final String MODID = "mob_farms";
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
-
     public static ServerConfig SERVER_CONFIG;
     public static ClientConfig CLIENT_CONFIG;
-
 //    public static KeyMapping PICKUP_KEY;
 //    public static KeyMapping CYCLE_TRADES_KEY;
 
@@ -42,6 +42,7 @@ public class Main {
 //        eventBus.addListener(this::onRegisterPayloadHandler);
         eventBus.addListener(IMC::enqueueIMC);
         eventBus.addListener(ModTileEntities::onRegisterCapabilities);
+        MobFarmsTriggerInstance.MobFarmsTrigger.TRIGGER_TYPES.register(eventBus);
 
         ModBlocks.init(eventBus);
         ModItems.init(eventBus);
