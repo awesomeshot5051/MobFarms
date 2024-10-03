@@ -18,17 +18,5 @@ You MUST discover it on your own in-game.
 <details>
 <summary>What Farm is missing</summary>
 <br>
-Seriously? <a href="https://awesomeshot5051.github.io" class="hover-link">you</a> think I'm going to just give it to you?
-
+Seriously? you think I'm going to just give it to you?
 </details>
-
-<style>
-.hover-link {
-    color: inherit; /* Default color */
-    text-decoration: none; /* No underline */
-}
-
-.hover-link:hover {
-    color: blue; /* Change color to blue on hover */
-}
-</style>
