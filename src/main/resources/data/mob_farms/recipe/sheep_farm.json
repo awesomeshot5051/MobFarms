@@ -19,7 +19,7 @@
       "item": "minecraft:stone"
     },
     "W": {
-      "tag": "minecraft:wool"
+      "tag": "#minecraft:wool"
     }
   },
   "result": {
