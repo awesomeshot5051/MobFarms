@@ -1,29 +1,30 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "pattern": [
-    "###",
-    "#L#",
-    "MSW"
+    "aaa",
+    "aba",
+    "cde"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:glass_pane"
+    "a": {
+      "tag": "c:glass_panes/colorless"
     },
-    "L": {
+    "b": {
       "item": "minecraft:lava_bucket"
     },
-    "M": {
+    "c": {
       "item": "minecraft:mutton"
     },
-    "S": {
+    "d": {
       "item": "minecraft:stone"
     },
-    "W": {
-      "tag": "#minecraft:wool"
+    "e": {
+      "tag": "minecraft:wool"
     }
   },
   "result": {
-    "item": "mob_farms:sheep_farm",
+    "id": "mob_farms:sheep_farm",
     "count": 1
   }
 }

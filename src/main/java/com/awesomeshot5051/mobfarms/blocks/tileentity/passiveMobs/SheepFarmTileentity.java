@@ -20,6 +20,7 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -29,6 +30,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -102,6 +104,7 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
             return Collections.emptyList();
         }
 
+        // Create a loot parameter builder for generating loot context
         LootParams.Builder builder = new LootParams.Builder(serverWorld)
                 .withParameter(LootContextParams.THIS_ENTITY, new Sheep(EntityType.SHEEP, level))
                 .withParameter(LootContextParams.ORIGIN, new Vec3(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ()))
@@ -109,10 +112,21 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
 
         LootParams lootContext = builder.create(LootContextParamSets.ENTITY);
 
-        LootTable lootTable = serverWorld.getServer().reloadableRegistries().getLootTable(SHEEP_LOOT_TABLE);
+        // List to hold the drops
+        List<ItemStack> drops = new ArrayList<>();
 
-        return lootTable.getRandomItems(lootContext);
+        // Manually add the wool drop (adjust the color and amount if needed)
+        // Using random wool color
+//        DyeColor randomColor = DyeColor.values()[serverWorld.random.nextInt(DyeColor.values().length)];
+        ItemStack woolDrop = new ItemStack(Items.WHITE_WOOL, 3); // Adjust the amount if needed
+        drops.add(woolDrop);
+
+        // Manually add cooked mutton drop (since the sheep is killed by lava, we drop cooked mutton)
+        drops.add(new ItemStack(Items.COOKED_MUTTON, 3)); // Adjust the amount if needed
+
+        return drops;
     }
+
 
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
