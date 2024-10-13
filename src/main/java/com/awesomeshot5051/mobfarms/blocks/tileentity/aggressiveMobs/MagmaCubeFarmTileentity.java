@@ -100,7 +100,8 @@ public class MagmaCubeFarmTileentity extends VillagerTileentity implements ITick
         List<ItemStack> drops = new ArrayList<>();
 
         if (serverWorld.random.nextDouble() < dropChance) {
-            drops.add(new ItemStack(Items.MAGMA_CREAM, 1)); // Drop 1 magma cream
+            int dropCount = serverWorld.random.nextIntBetweenInclusive(1, 4);
+            drops.add(new ItemStack(Items.MAGMA_CREAM, dropCount)); // Drop 1 magma cream
         }
 
         // Optionally, you can add other items to drop here if needed
