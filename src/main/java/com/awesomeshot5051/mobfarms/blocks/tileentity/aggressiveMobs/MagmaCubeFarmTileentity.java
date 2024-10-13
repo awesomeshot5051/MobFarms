@@ -95,7 +95,7 @@ public class MagmaCubeFarmTileentity extends VillagerTileentity implements ITick
             return Collections.emptyList();
         }
 
-        // Chance to drop magma cream (adjust the value as needed)
+        // Chance to drop magma cream
         double dropChance = 0.5; // 50% chance to drop magma cream
         List<ItemStack> drops = new ArrayList<>();
 

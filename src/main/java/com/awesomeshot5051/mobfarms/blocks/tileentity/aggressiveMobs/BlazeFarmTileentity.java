@@ -95,7 +95,7 @@ public class BlazeFarmTileentity extends VillagerTileentity implements ITickable
             return Collections.emptyList();
         }
 
-        // Chance to drop blaze rod (adjust the value as needed)
+        // Chance to drop blaze rod
         double dropChance = 0.5; // 50% chance to drop blaze rod
         List<ItemStack> drops = new ArrayList<>();
 
