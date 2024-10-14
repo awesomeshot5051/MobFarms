@@ -103,12 +103,11 @@ public class WitherFarmTileentity extends VillagerTileentity implements ITickabl
         }
 //        drops.add(new ItemStack(Items.NETHER_STAR));
         // Add an iron axe with a chance to enchant it
-        ItemStack ironAxe = new ItemStack(Items.WITHER_SKELETON_SKULL);
-        drops.add(ironAxe);
+        ItemStack skull = new ItemStack(Items.WITHER_SKELETON_SKULL);
+        drops.add(skull);
 
         return drops;
     }
-
     public Container getOutputInventory() {
         return new ItemListInventory(inventory, this::setChanged);
     }

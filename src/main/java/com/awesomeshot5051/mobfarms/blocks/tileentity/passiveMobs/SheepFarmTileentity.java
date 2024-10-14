@@ -19,6 +19,8 @@ import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,6 +35,8 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static com.awesomeshot5051.mobfarms.blocks.passiveMobs.SheepFarmBlock.COLOR;
 
 public class SheepFarmTileentity extends VillagerTileentity implements ITickableBlockEntity {
 
@@ -115,16 +119,63 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
         // List to hold the drops
         List<ItemStack> drops = new ArrayList<>();
 
-        // Manually add the wool drop (adjust the color and amount if needed)
-        // Using random wool color
-//        DyeColor randomColor = DyeColor.values()[serverWorld.random.nextInt(DyeColor.values().length)];
-        ItemStack woolDrop = new ItemStack(Items.WHITE_WOOL, 3); // Adjust the amount if needed
-        drops.add(woolDrop);
+        // Get the wool color from the block state
+        DyeColor woolColor = getWoolColor(); // Use the method to get the wool color
+        ItemStack WoolColor = setWoolColor(woolColor);
+        drops.add(WoolColor);
 
         // Manually add cooked mutton drop (since the sheep is killed by lava, we drop cooked mutton)
         drops.add(new ItemStack(Items.COOKED_MUTTON, 3)); // Adjust the amount if needed
 
         return drops;
+    }
+
+    private ItemStack setWoolColor(DyeColor woolColor) {
+        switch (woolColor) {
+            case WHITE:
+                return new ItemStack(Items.WHITE_WOOL, 3);
+            case ORANGE:
+                return new ItemStack(Items.ORANGE_WOOL, 3);
+            case MAGENTA:
+                return new ItemStack(Items.MAGENTA_WOOL, 3);
+            case LIGHT_BLUE:
+                return new ItemStack(Items.LIGHT_BLUE_WOOL, 3);
+            case YELLOW:
+                return new ItemStack(Items.YELLOW_WOOL, 3);
+            case LIME:
+                return new ItemStack(Items.LIME_WOOL, 3);
+            case PINK:
+                return new ItemStack(Items.PINK_WOOL, 3);
+            case GRAY:
+                return new ItemStack(Items.GRAY_WOOL, 3);
+            case LIGHT_GRAY:
+                return new ItemStack(Items.LIGHT_GRAY_WOOL, 3);
+            case CYAN:
+                return new ItemStack(Items.CYAN_WOOL, 3);
+            case PURPLE:
+                return new ItemStack(Items.PURPLE_WOOL, 3);
+            case BLUE:
+                return new ItemStack(Items.BLUE_WOOL, 3);
+            case BROWN:
+                return new ItemStack(Items.BROWN_WOOL, 3);
+            case GREEN:
+                return new ItemStack(Items.GREEN_WOOL, 3);
+            case RED:
+                return new ItemStack(Items.RED_WOOL, 3);
+            case BLACK:
+                return new ItemStack(Items.BLACK_WOOL, 3);
+            default:
+                return new ItemStack(Items.WHITE_WOOL, 3); // Return an empty ItemStack for an unknown color
+        }
+    }
+
+
+    private DyeColor getWoolColor() {
+        BlockState state = this.getBlockState(); // Get the current block state
+        if (state.hasProperty(COLOR)) {
+            return state.getValue(COLOR); // Return the color set on the block
+        }
+        return DyeColor.WHITE; // Default to white if no color is set
     }
 
 
@@ -149,6 +200,20 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
 
     public IItemHandler getItemHandler() {
         return outputItemHandler;
+    }
+
+    private Item getWoolFromColor(DyeColor color) {
+        switch (color) {
+            case RED:
+                return Items.RED_WOOL;
+            case BLUE:
+                return Items.BLUE_WOOL;
+            case GREEN:
+                return Items.GREEN_WOOL;
+            // Add more cases for all DyeColor values
+            default:
+                return Items.WHITE_WOOL;
+        }
     }
 
 }
