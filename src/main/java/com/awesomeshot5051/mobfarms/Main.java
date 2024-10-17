@@ -64,7 +64,7 @@ public class Main {
     public void commonSetup(FMLCommonSetupEvent event) {
 //        NeoForge.EVENT_BUS.register(new ModEvents());
         NeoForge.EVENT_BUS.register(new BlockEvents());
-
+        // Register your custom dispenser behavior for dye items
     }
 
     public boolean matches(ServerPlayer player, WitherFarmBlock witherFarmBlock) {

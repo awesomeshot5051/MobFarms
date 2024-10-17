@@ -131,42 +131,25 @@ public class SheepFarmTileentity extends VillagerTileentity implements ITickable
     }
 
     private ItemStack setWoolColor(DyeColor woolColor) {
-        switch (woolColor) {
-            case WHITE:
-                return new ItemStack(Items.WHITE_WOOL, 3);
-            case ORANGE:
-                return new ItemStack(Items.ORANGE_WOOL, 3);
-            case MAGENTA:
-                return new ItemStack(Items.MAGENTA_WOOL, 3);
-            case LIGHT_BLUE:
-                return new ItemStack(Items.LIGHT_BLUE_WOOL, 3);
-            case YELLOW:
-                return new ItemStack(Items.YELLOW_WOOL, 3);
-            case LIME:
-                return new ItemStack(Items.LIME_WOOL, 3);
-            case PINK:
-                return new ItemStack(Items.PINK_WOOL, 3);
-            case GRAY:
-                return new ItemStack(Items.GRAY_WOOL, 3);
-            case LIGHT_GRAY:
-                return new ItemStack(Items.LIGHT_GRAY_WOOL, 3);
-            case CYAN:
-                return new ItemStack(Items.CYAN_WOOL, 3);
-            case PURPLE:
-                return new ItemStack(Items.PURPLE_WOOL, 3);
-            case BLUE:
-                return new ItemStack(Items.BLUE_WOOL, 3);
-            case BROWN:
-                return new ItemStack(Items.BROWN_WOOL, 3);
-            case GREEN:
-                return new ItemStack(Items.GREEN_WOOL, 3);
-            case RED:
-                return new ItemStack(Items.RED_WOOL, 3);
-            case BLACK:
-                return new ItemStack(Items.BLACK_WOOL, 3);
-            default:
-                return new ItemStack(Items.WHITE_WOOL, 3); // Return an empty ItemStack for an unknown color
-        }
+        return switch (woolColor) {
+            case WHITE -> new ItemStack(Items.WHITE_WOOL, 3);
+            case ORANGE -> new ItemStack(Items.ORANGE_WOOL, 3);
+            case MAGENTA -> new ItemStack(Items.MAGENTA_WOOL, 3);
+            case LIGHT_BLUE -> new ItemStack(Items.LIGHT_BLUE_WOOL, 3);
+            case YELLOW -> new ItemStack(Items.YELLOW_WOOL, 3);
+            case LIME -> new ItemStack(Items.LIME_WOOL, 3);
+            case PINK -> new ItemStack(Items.PINK_WOOL, 3);
+            case GRAY -> new ItemStack(Items.GRAY_WOOL, 3);
+            case LIGHT_GRAY -> new ItemStack(Items.LIGHT_GRAY_WOOL, 3);
+            case CYAN -> new ItemStack(Items.CYAN_WOOL, 3);
+            case PURPLE -> new ItemStack(Items.PURPLE_WOOL, 3);
+            case BLUE -> new ItemStack(Items.BLUE_WOOL, 3);
+            case BROWN -> new ItemStack(Items.BROWN_WOOL, 3);
+            case GREEN -> new ItemStack(Items.GREEN_WOOL, 3);
+            case RED -> new ItemStack(Items.RED_WOOL, 3);
+            case BLACK -> new ItemStack(Items.BLACK_WOOL, 3);
+            default -> new ItemStack(Items.WHITE_WOOL, 3); // Return an empty ItemStack for an unknown color
+        };
     }
 
 
